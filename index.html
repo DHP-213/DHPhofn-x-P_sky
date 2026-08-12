@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0A0A0F">
-<meta name="description" content="DHPhofn x P_sky Editz - Kênh edit video Anime phong cách Cyberpunk. Xem ngay gear mình đang dùng.">
+<meta name="description" content="DHPhofn x P_sky Editz - Bio Link tổng hợp Gear & Decor chất lượng Shopee.">
+
 <title>DHPhofn x P_sky Editz | Bio Link</title>
 
-<!-- Favicon Icon 🗿 Trên Tab Trình Duyệt -->
+<!-- Favicon Icon 🗿 -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗿</text></svg>">
 
 <!-- Google Font: Orbitron -->
@@ -16,7 +17,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&display=swap" rel="stylesheet">
 
 <style>
-
   /* ==========================================================
      1. RESET & CSS VARIABLES
   ========================================================== */
@@ -41,7 +41,7 @@
      2. BODY + BACKGROUND
   ========================================================== */
   html, body {
-    height: 100%;
+    min-height: 100%;
   }
 
   body {
@@ -57,6 +57,7 @@
     justify-content: center;
     overflow-x: hidden;
     position: relative;
+    padding-bottom: 40px;
   }
 
   body::before {
@@ -78,37 +79,35 @@
   }
 
   /* ==========================================================
-     3. CONTAINER — Mobile First + Responsive PC
+     3. CONTAINER
   ========================================================== */
   .container {
     position: relative;
     z-index: 1;
     width: 100%;
-    max-width: 420px;
-    padding: 44px 20px 28px;
+    max-width: 440px;
+    padding: 44px 16px 28px;
     animation: fadeInUp 0.6s ease-out both;
-    transition: max-width 0.3s ease;
   }
 
-  /* Tối ưu riêng cho màn hình PC / Máy tính lớn */
   @media (min-width: 768px) {
     .container {
-      max-width: 520px;
+      max-width: 540px;
       padding: 60px 24px 40px;
     }
   }
 
   /* ==========================================================
-     4. HEADER & AVATAR
+     4. HEADER & AVATAR LOGO
   ========================================================== */
   .profile-header {
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
   .avatar-wrap {
-    width: 96px;
-    height: 96px;
+    width: 100px;
+    height: 100px;
     margin: 0 auto 18px;
     border-radius: 50%;
     padding: 3px;
@@ -116,53 +115,34 @@
     animation: avatarPulse 2s ease-in-out infinite;
   }
 
-  .avatar-inner {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: var(--bg-card);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    font-size: 42px;
-  }
-
   .avatar-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     border-radius: 50%;
+    object-fit: cover;
+    background: var(--bg-card);
+    display: block;
   }
 
   @keyframes avatarPulse {
     0%, 100% {
       transform: scale(1);
-      box-shadow:
-        0 0 10px 2px rgba(0, 240, 255, 0.7),
-        0 0 24px 6px rgba(0, 240, 255, 0.35),
-        0 0 40px 10px rgba(0, 240, 255, 0.15);
+      box-shadow: 0 0 10px 2px rgba(0, 240, 255, 0.7), 0 0 24px 6px rgba(0, 240, 255, 0.35);
     }
     50% {
       transform: scale(1.06);
-      box-shadow:
-        0 0 14px 3px rgba(255, 0, 170, 0.75),
-        0 0 30px 8px rgba(255, 0, 170, 0.4),
-        0 0 46px 12px rgba(255, 0, 170, 0.18);
+      box-shadow: 0 0 14px 3px rgba(255, 0, 170, 0.75), 0 0 30px 8px rgba(255, 0, 170, 0.4);
     }
   }
 
   .channel-name {
-    font-family: 'Orbitron', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--text-main);
-    text-shadow:
-      0 0 8px rgba(0, 240, 255, 0.85),
-      0 0 22px rgba(0, 240, 255, 0.4);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.85), 0 0 22px rgba(0, 240, 255, 0.4);
     margin-bottom: 8px;
-    word-break: break-word;
   }
 
   .bio {
@@ -189,7 +169,6 @@
   .verified-badge .check-icon {
     width: 15px;
     height: 15px;
-    flex-shrink: 0;
     border-radius: 50%;
     background: var(--neon-magenta);
     color: var(--bg-main);
@@ -201,25 +180,70 @@
   }
 
   /* ==========================================================
-     5. SECTION LABEL
+     5. CATEGORY TABS
   ========================================================== */
-  .section-label {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+  .tabs-wrapper {
+    margin-bottom: 24px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+
+  .tabs-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabs-container {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    min-width: max-content;
+    padding: 4px 2px;
+  }
+
+  @media (min-width: 500px) {
+    .tabs-container {
+      justify-content: center;
+    }
+  }
+
+  .tab-btn {
+    background: var(--bg-card);
+    border: 1px solid rgba(0, 240, 255, 0.2);
     color: var(--text-sub);
-    margin-bottom: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .tab-btn:hover {
+    border-color: var(--neon-cyan);
+    color: var(--text-main);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  }
+
+  .tab-btn.active {
+    background: rgba(0, 240, 255, 0.12);
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+    text-shadow: 0 0 6px rgba(0, 240, 255, 0.6);
   }
 
   /* ==========================================================
-     6. LINK CARDS (SHOPEE AFFILIATE)
+     6. LINK CARDS
   ========================================================== */
   .links-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
   }
 
   .link-card {
@@ -230,46 +254,37 @@
     background: var(--bg-card);
     border: 1px solid rgba(0, 240, 255, 0.15);
     border-radius: 16px;
-    padding: 16px 20px;
+    padding: 16px 18px;
     box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
     text-decoration: none;
     color: inherit;
     overflow: hidden;
     cursor: pointer;
     transition: transform 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
-    animation: fadeInUp 0.5s ease-out both;
   }
 
-  .link-card:nth-child(1) { animation-delay: 0.08s; }
-  .link-card:nth-child(2) { animation-delay: 0.16s; }
-  .link-card:nth-child(3) { animation-delay: 0.24s; }
-  .link-card:nth-child(4) { animation-delay: 0.32s; }
+  .link-card.animate {
+    animation: fadeInUp 0.4s ease-out both;
+  }
 
   .link-card:hover,
   .link-card:active {
     transform: translateY(-2px);
     border-color: var(--neon-cyan);
-    box-shadow: 0 0 20px #00F0FF88, 0 0 40px #FF00AA44;
+    box-shadow: 0 0 20px #00F0FF88, 0 0 30px #FF00AA33;
   }
 
   .link-icon {
     flex-shrink: 0;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 20px;
+    font-size: 22px;
     background: rgba(0, 240, 255, 0.07);
     border: 1px solid rgba(0, 240, 255, 0.35);
-    transition: border-color 0.2s ease-out, background 0.2s ease-out;
-  }
-
-  .link-card:hover .link-icon,
-  .link-card:active .link-icon {
-    border-color: var(--neon-magenta);
-    background: rgba(255, 0, 170, 0.1);
   }
 
   .link-info {
@@ -302,57 +317,25 @@
     font-size: 12px;
     font-weight: 700;
     border-radius: 20px;
-    padding: 6px 16px;
+    padding: 6px 14px;
     white-space: nowrap;
-    transition: background 0.2s ease-out, color 0.2s ease-out, border-color 0.2s ease-out;
+    transition: background 0.2s ease-out, color 0.2s ease-out;
   }
 
   .link-card:hover .link-cta,
   .link-card:active .link-cta {
     background: var(--neon-cyan);
     color: var(--bg-main);
-    border-color: var(--neon-cyan);
-  }
-
-  /* Ripple Animation */
-  .link-card::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 8px;
-    height: 8px;
-    background: var(--neon-cyan);
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .link-card:active::after {
-    animation: ripple 0.5s ease-out;
-  }
-
-  @keyframes ripple {
-    0% {
-      transform: translate(-50%, -50%) scale(0);
-      opacity: 0.55;
-    }
-    100% {
-      transform: translate(-50%, -50%) scale(26);
-      opacity: 0;
-    }
   }
 
   /* ==========================================================
-     7. FOOTER
+     7. FOOTER & ANIMATIONS
   ========================================================== */
   footer {
     text-align: center;
     font-size: 12px;
     color: #555577;
-    margin-top: 28px;
-    padding: 0 12px;
+    margin-top: 32px;
   }
 
   .heart {
@@ -363,14 +346,13 @@
   @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateY(14px);
+      transform: translateY(12px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
     }
   }
-
 </style>
 </head>
 <body>
@@ -380,9 +362,8 @@
     <!-- ===================== HEADER ===================== -->
     <header class="profile-header">
       <div class="avatar-wrap">
-        <div class="avatar-inner">
-          <img src="avatar.jpg" alt="Avatar" class="avatar-img" onerror="this.outerHTML='🤖'">
-        </div>
+        <!-- Ảnh Avatar Logo P Edits lấy trực tiếp từ dự án -->
+        <img class="avatar-img" src="Gemini_Generated_Image_gwev91gwev91gwev.png" alt="P Edits Logo">
       </div>
 
       <h1 class="channel-name">DHPhofn x P_sky Editz</h1>
@@ -394,59 +375,209 @@
       </span>
     </header>
 
+    <!-- ===================== TAB LỌC DANH MỤC ===================== -->
+    <div class="tabs-wrapper">
+      <div class="tabs-container">
+        <button class="tab-btn active" data-tab="all">Tất Cả ⚡</button>
+        <button class="tab-btn" data-tab="mo-hinh">Mô Hình 🤖</button>
+        <button class="tab-btn" data-tab="den-led">Đèn LED 💡</button>
+        <button class="tab-btn" data-tab="ban-phim">Bàn Phím ⌨️</button>
+        <button class="tab-btn" data-tab="kep-stream">Kẹp Stream 📱</button>
+      </div>
+    </div>
+
     <!-- ===================== DANH SÁCH LINK SẢN PHẨM ===================== -->
-    <p class="section-label">⚡ GEAR MÌNH ĐANG DÙNG</p>
+    <main class="links-list" id="linksList">
 
-    <main class="links-list">
-
-      <!-- Sản phẩm 1 -->
-      <a href="https://s.shopee.vn/30n8VsDfBV" class="link-card" target="_blank" rel="noopener noreferrer">
+      <!-- ================= 1. MÔ HÌNH GUNDAM ================= -->
+      <a href="https://s.shopee.vn/2gAIErZrLW" data-category="mo-hinh" class="link-card animate" target="_blank" rel="noopener noreferrer">
         <div class="link-icon">🤖</div>
         <div class="link-info">
-          <div class="link-title">Mô Hình Gundam RG 1/144</div>
-          <div class="link-desc">Chi tiết sắc nét, dễ ráp cho newbie</div>
+          <div class="link-title">Mô Hình Gundam Mẫu 1</div>
+          <div class="link-desc">Khớp linh hoạt, màu chuẩn Cyberpunk</div>
         </div>
-        <span class="link-cta">Xem Ngay</span>
+        <span class="link-cta">Mua Ngay</span>
       </a>
 
-      <!-- Sản phẩm 2 -->
-      <a href="https://s.shopee.vn/W5nXSkvHP" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://s.shopee.vn/7VFXznKzW0" data-category="mo-hinh" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🦾</div>
+        <div class="link-info">
+          <div class="link-title">Mô Hình Gundam Mẫu 2</div>
+          <div class="link-desc">Độ chi tiết cao, thích hợp decor góc máy</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <a href="https://s.shopee.vn/20ubRiIdqm" data-category="mo-hinh" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">⚔️</div>
+        <div class="link-info">
+          <div class="link-title">Mô Hình Gundam Mẫu 3</div>
+          <div class="link-desc">Trang bị vũ khí ngầu đét, chính hãng</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <a href="https://s.shopee.vn/4fvMceh17H" data-category="mo-hinh" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🛡️</div>
+        <div class="link-info">
+          <div class="link-title">Mô Hình Gundam Mẫu 4</div>
+          <div class="link-desc">Dễ lắp ráp cho newbie, nhựa PVC bền đẹp</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <a href="https://s.shopee.vn/5LB3PuiU2i" data-category="mo-hinh" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🚀</div>
+        <div class="link-info">
+          <div class="link-title">Mô Hình Gundam Mẫu 5</div>
+          <div class="link-desc">Mẫu Hot Trend, mua cực nhiều trên Shopee</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+
+      <!-- ================= 2. ĐÈN LED RGB DÁN BÀN 5M ================= -->
+      <a href="https://s.shopee.vn/9pdSmJyh2B" data-category="den-led" class="link-card animate" target="_blank" rel="noopener noreferrer">
         <div class="link-icon">💡</div>
         <div class="link-info">
-          <div class="link-title">Đèn LED RGB Dán Bàn 5M</div>
-          <div class="link-desc">16 triệu màu, sync nhạc theo nhịp</div>
+          <div class="link-title">Đèn LED RGB Dán Bàn 5M (Loại 1)</div>
+          <div class="link-desc">Đổi màu App điện thoại, sync nhạc mượt</div>
         </div>
-        <span class="link-cta">Xem Ngay</span>
+        <span class="link-cta">Mua Ngay</span>
       </a>
 
-      <!-- Sản phẩm 3 -->
-      <a href="https://s.shopee.vn/8pkvSzzIfc" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://s.shopee.vn/4qEmpASC66" data-category="den-led" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🔮</div>
+        <div class="link-info">
+          <div class="link-title">Đèn LED RGB Dán Bàn 5M (Loại 2)</div>
+          <div class="link-desc">LED bọc silicon chống nước, ánh sáng mịn</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <a href="https://s.shopee.vn/20ubRzpRMj" data-category="den-led" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">✨</div>
+        <div class="link-info">
+          <div class="link-title">Đèn LED RGB Dán Bàn 5M (Loại 3)</div>
+          <div class="link-desc">Kèm Remote điều khiển từ xa tiện lợi</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <a href="https://s.shopee.vn/80Bob2yR87" data-category="den-led" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🌈</div>
+        <div class="link-info">
+          <div class="link-title">Đèn LED RGB Dán Bàn 5M (Loại 4)</div>
+          <div class="link-desc">Cuộn 5m sẵn keo 3M dính cực chắc</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <a href="https://s.shopee.vn/6VN0oK7jtH" data-category="den-led" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">⚡</div>
+        <div class="link-info">
+          <div class="link-title">Đèn LED RGB Dán Bàn 5M (Loại 5)</div>
+          <div class="link-desc">Chế độ hiệu ứng đuổi màu Neon rực rỡ</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+
+      <!-- ================= 3. BÀN PHÍM CƠ MINI 61 KEYS ================= -->
+      <a href="https://s.shopee.vn/BSxGmKctp" data-category="ban-phim" class="link-card animate" target="_blank" rel="noopener noreferrer">
         <div class="link-icon">⌨️</div>
         <div class="link-info">
-          <div class="link-title">Bàn Phím Cơ Mini 61 Keys</div>
-          <div class="link-desc">Switch clicky đã tai, keycap xuyên LED</div>
+          <div class="link-title">Bàn Phím Cơ Mini 61 Keys (Mẫu A)</div>
+          <div class="link-desc">Thiết kế nhỏ gọn, gõ gõ cực đã tay</div>
         </div>
-        <span class="link-cta">Xem Ngay</span>
+        <span class="link-cta">Mua Ngay</span>
       </a>
 
-      <!-- Sản phẩm 4 -->
-      <a href="https://s.shopee.vn/6fgQtDJkYs" class="link-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://s.shopee.vn/904Ln2pyID" data-category="ban-phim" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🔤</div>
+        <div class="link-info">
+          <div class="link-title">Bàn Phím Cơ Mini 61 Keys (Mẫu B)</div>
+          <div class="link-desc">LED RGB nhiều chế độ, kết nối Type-C</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <a href="https://s.shopee.vn/LmNT9Hl0Y" data-category="ban-phim" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🎮</div>
+        <div class="link-info">
+          <div class="link-title">Bàn Phím Cơ Mini 61 Keys (Mẫu C)</div>
+          <div class="link-desc">Chuyên Game/Edit video, hotswap linh hoạt</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+
+      <!-- ================= 4. KẸP LIVESTREAM RING LIGHT ================= -->
+      <a href="https://s.shopee.vn/6L3acE1br3" data-category="kep-stream" class="link-card animate" target="_blank" rel="noopener noreferrer">
         <div class="link-icon">📱</div>
         <div class="link-info">
-          <div class="link-title">Kẹp Livestream + Ring Light</div>
-          <div class="link-desc">Ánh sáng chuẩn studio, quay mượt tay</div>
+          <div class="link-title">Kẹp Livestream Ring Light (Mẫu 1)</div>
+          <div class="link-desc">Đèn trợ sáng 3 chế độ, xoay 360 độ</div>
         </div>
-        <span class="link-cta">Xem Ngay</span>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <a href="https://s.shopee.vn/9pdSmhiwt7" data-category="kep-stream" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🎥</div>
+        <div class="link-info">
+          <div class="link-title">Kẹp Livestream Ring Light (Mẫu 2)</div>
+          <div class="link-desc">Chân đế chắc chắn, đứng vững không rung</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <a href="https://s.shopee.vn/W5nfaVURb" data-category="kep-stream" class="link-card animate" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">🎙️</div>
+        <div class="link-info">
+          <div class="link-title">Kẹp Livestream Ring Light (Mẫu 3)</div>
+          <div class="link-desc">Đa năng kẹp điện thoại + Đèn trợ sáng Studio</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
       </a>
 
     </main>
 
     <!-- ===================== FOOTER ===================== -->
     <footer>
-      Handcrafted with <span class="heart">❤️</span> by DHPhofn x P_sky Editz | Built with pure HTML/CSS
+      Handcrafted with <span class="heart">❤️</span> by DHPhofn x P_sky Editz | Built with pure HTML/CSS/JS
     </footer>
 
   </div>
+
+  <!-- ===================== JAVASCRIPT XỬ LÝ LỌC TAB ===================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const linkCards = document.querySelectorAll('.link-card');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const category = btn.getAttribute('data-tab');
+
+          linkCards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+
+            if (category === 'all' || cardCat === category) {
+              card.style.display = 'flex';
+              card.classList.remove('animate');
+              void card.offsetWidth; // Force Reflow
+              card.classList.add('animate');
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
