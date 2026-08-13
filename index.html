@@ -18,7 +18,7 @@
 
 <style>
   /* ==========================================================
-     1. RESET & CSS VARIABLES
+     1. RESET & CSS VARIABLES (CÁC MÀU THEME)
   ========================================================== */
   * {
     margin: 0;
@@ -27,20 +27,43 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  /* 🌌 Theme 1: Neon Cyan Default */
   :root {
     --bg-main: #0A0A0F;
+    --bg-grid: rgba(0, 240, 255, 0.05);
     --bg-card: #12121A;
+    --border-card: rgba(0, 240, 255, 0.2);
     --text-main: #F0F0FF;
     --text-sub: #8888AA;
-    --neon-cyan: #00F0FF;
-    --neon-magenta: #FF00AA;
-    --gradient-neon: linear-gradient(135deg, #00F0FF, #FF00AA);
+    --neon-accent: #00F0FF;
+    --particle-color: rgba(0, 240, 255, 0.7);
+    --gradient-avatar: linear-gradient(135deg, #00F0FF, #FF00AA);
   }
 
+  /* 🔮 Theme 2: Purple Cyberpunk */
   body.theme-purple {
-    --gradient-neon: linear-gradient(135deg, #a855f7, #ec4899);
-    --neon-cyan: #c084fc;
-    --neon-magenta: #f472b6;
+    --bg-main: #0F0A18;
+    --bg-grid: rgba(192, 132, 252, 0.06);
+    --bg-card: #1A1228;
+    --border-card: rgba(192, 132, 252, 0.25);
+    --text-main: #FAF5FF;
+    --text-sub: #A892C6;
+    --neon-accent: #C084FC;
+    --particle-color: rgba(192, 132, 252, 0.7);
+    --gradient-avatar: linear-gradient(135deg, #a855f7, #ec4899);
+  }
+
+  /* ⚪ Theme 3: Light Cyber (Nền Trắng Sọc Đen, Hạt Đen) */
+  body.theme-light {
+    --bg-main: #F4F4F7;
+    --bg-grid: rgba(0, 0, 0, 0.08);
+    --bg-card: #FFFFFF;
+    --border-card: rgba(0, 0, 0, 0.15);
+    --text-main: #111118;
+    --text-sub: #555566;
+    --neon-accent: #000000;
+    --particle-color: rgba(0, 0, 0, 0.6);
+    --gradient-avatar: linear-gradient(135deg, #111111, #666666);
   }
 
   html, body {
@@ -50,22 +73,22 @@
   body {
     background-color: var(--bg-main);
     background-image:
-      linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
-    background-size: 32px 32px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      linear-gradient(var(--bg-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+    background-size: 28px 28px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: var(--text-main);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     overflow-x: hidden;
     position: relative;
-    padding-bottom: 60px;
-    transition: background-color 0.4s ease;
+    padding-bottom: 70px;
+    transition: background 0.4s ease, color 0.4s ease;
   }
 
   /* ==========================================================
-     2. CANVAS HẠT BỤI SÁNG (PARTICLES)
+     2. PARTICLES CANVAS
   ========================================================== */
   #particles-canvas {
     position: fixed;
@@ -77,9 +100,6 @@
     z-index: 1;
   }
 
-  /* ==========================================================
-     3. CONTAINER
-  ========================================================== */
   .container {
     position: relative;
     z-index: 2;
@@ -97,7 +117,7 @@
   }
 
   /* ==========================================================
-     4. HEADER & LOGO
+     3. HEADER
   ========================================================== */
   .profile-header {
     text-align: center;
@@ -110,9 +130,8 @@
     margin: 0 auto 16px;
     border-radius: 50%;
     padding: 3px;
-    background: var(--gradient-neon);
+    background: var(--gradient-avatar);
     animation: avatarPulse 2.5s ease-in-out infinite;
-    will-change: transform;
   }
 
   .avatar-img {
@@ -122,20 +141,16 @@
     object-fit: cover;
     display: block;
     background: #0d0e15;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: translateZ(0);
-    image-rendering: -webkit-optimize-contrast;
   }
 
   @keyframes avatarPulse {
     0%, 100% {
-      transform: scale(1) translateZ(0);
-      box-shadow: 0 0 12px 2px rgba(0, 240, 255, 0.8), 0 0 24px 6px rgba(0, 240, 255, 0.3);
+      transform: scale(1);
+      box-shadow: 0 0 12px 2px var(--neon-accent);
     }
     50% {
-      transform: scale(1.03) translateZ(0);
-      box-shadow: 0 0 16px 3px rgba(255, 0, 170, 0.85), 0 0 32px 8px rgba(255, 0, 170, 0.4);
+      transform: scale(1.03);
+      box-shadow: 0 0 20px 4px var(--neon-accent);
     }
   }
 
@@ -145,7 +160,6 @@
     font-weight: 700;
     letter-spacing: 1px;
     color: var(--text-main);
-    text-shadow: 0 0 8px rgba(0, 240, 255, 0.85), 0 0 22px rgba(0, 240, 255, 0.4);
     margin-bottom: 6px;
   }
 
@@ -161,20 +175,20 @@
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    border: 1px solid var(--neon-magenta);
-    color: var(--neon-magenta);
+    border: 1px solid var(--neon-accent);
+    color: var(--text-main);
     font-size: 11px;
     font-weight: 600;
     border-radius: 20px;
     padding: 4px 12px 4px 5px;
-    box-shadow: 0 0 10px rgba(255, 0, 170, 0.35);
+    background: rgba(0, 0, 0, 0.05);
   }
 
   .verified-badge .check-icon {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background: var(--neon-magenta);
+    background: var(--neon-accent);
     color: var(--bg-main);
     display: inline-flex;
     align-items: center;
@@ -184,44 +198,16 @@
   }
 
   /* ==========================================================
-     5. SHOWCASE VIDEO & REVIEWS
+     4. REVIEWS KHÁCH HÀNG
   ========================================================== */
   .section-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 12px;
     font-weight: 700;
-    color: var(--neon-cyan);
+    color: var(--neon-accent);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .showcase-section {
-    margin-bottom: 24px;
-  }
-
-  .video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    height: 0;
-    border-radius: 14px;
-    overflow: hidden;
-    border: 1px solid rgba(0, 240, 255, 0.3);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-    background: #000;
-  }
-
-  .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
   }
 
   .reviews-section {
@@ -234,20 +220,17 @@
     overflow-x: auto;
     padding: 4px 2px 10px;
     scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
   }
 
-  .reviews-slider::-webkit-scrollbar {
-    display: none;
-  }
+  .reviews-slider::-webkit-scrollbar { display: none; }
 
   .review-card {
     flex: 0 0 230px;
     background: var(--bg-card);
-    border: 1px solid rgba(255, 0, 170, 0.25);
+    border: 1px solid var(--border-card);
     border-radius: 12px;
     padding: 12px 14px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   }
 
   .review-header {
@@ -275,21 +258,16 @@
   }
 
   /* ==========================================================
-     6. CATEGORY TABS
+     5. TABS & LINK CARDS
   ========================================================== */
   .tabs-wrapper {
     margin-bottom: 20px;
-    width: 100%;
     overflow-x: auto;
-    overflow-y: hidden;
-    padding: 6px 2px 10px;
+    padding: 4px 2px 8px;
     scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
   }
 
-  .tabs-wrapper::-webkit-scrollbar {
-    display: none;
-  }
+  .tabs-wrapper::-webkit-scrollbar { display: none; }
 
   .tabs-container {
     display: flex;
@@ -298,15 +276,9 @@
     margin: 0 auto;
   }
 
-  @media (max-width: 480px) {
-    .tabs-container {
-      margin: 0;
-    }
-  }
-
   .tab-btn {
     background: var(--bg-card);
-    border: 1px solid rgba(0, 240, 255, 0.2);
+    border: 1px solid var(--border-card);
     color: var(--text-sub);
     font-size: 12px;
     font-weight: 600;
@@ -315,29 +287,14 @@
     cursor: pointer;
     transition: all 0.25s ease;
     white-space: nowrap;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    flex-shrink: 0;
   }
 
-  .tab-btn:hover {
-    border-color: var(--neon-cyan);
-    color: var(--text-main);
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  .tab-btn.active, .tab-btn:hover {
+    border-color: var(--neon-accent);
+    color: var(--neon-accent);
+    background: rgba(0, 0, 0, 0.05);
   }
 
-  .tab-btn.active {
-    background: rgba(0, 240, 255, 0.12);
-    border-color: var(--neon-cyan);
-    color: var(--neon-cyan);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
-    text-shadow: 0 0 6px rgba(0, 240, 255, 0.6);
-  }
-
-  /* ==========================================================
-     7. LINK CARDS
-  ========================================================== */
   .links-list {
     display: flex;
     flex-direction: column;
@@ -345,35 +302,25 @@
   }
 
   .link-card {
-    position: relative;
     display: flex;
     align-items: center;
     gap: 12px;
     background: var(--bg-card);
-    border: 1px solid rgba(0, 240, 255, 0.15);
+    border: 1px solid var(--border-card);
     border-radius: 14px;
     padding: 14px 16px;
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     text-decoration: none;
     color: inherit;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+    transition: transform 0.2s ease, border-color 0.2s ease;
   }
 
-  .link-card.animate {
-    animation: fadeInUp 0.4s ease-out both;
-  }
-
-  .link-card:hover,
-  .link-card:active {
+  .link-card:hover {
     transform: translateY(-2px);
-    border-color: var(--neon-cyan);
-    box-shadow: 0 0 20px #00F0FF88, 0 0 30px #FF00AA33;
+    border-color: var(--neon-accent);
   }
 
   .link-icon {
-    flex-shrink: 0;
     width: 38px;
     height: 38px;
     border-radius: 10px;
@@ -381,53 +328,41 @@
     align-items: center;
     justify-content: center;
     font-size: 20px;
-    background: rgba(0, 240, 255, 0.07);
-    border: 1px solid rgba(0, 240, 255, 0.35);
+    background: rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--border-card);
   }
 
-  .link-info {
-    flex: 1;
-    min-width: 0;
-  }
+  .link-info { flex: 1; min-width: 0; }
 
   .link-title {
     font-size: 14px;
     font-weight: 600;
     color: var(--text-main);
     margin-bottom: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .link-desc {
     font-size: 11px;
     color: var(--text-sub);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .link-cta {
-    flex-shrink: 0;
-    border: 1px solid var(--neon-cyan);
-    color: var(--neon-cyan);
+    border: 1px solid var(--neon-accent);
+    color: var(--neon-accent);
     font-size: 11px;
     font-weight: 700;
     border-radius: 18px;
     padding: 5px 12px;
     white-space: nowrap;
-    transition: background 0.2s ease-out, color 0.2s ease-out;
   }
 
-  .link-card:hover .link-cta,
-  .link-card:active .link-cta {
-    background: var(--neon-cyan);
+  .link-card:hover .link-cta {
+    background: var(--neon-accent);
     color: var(--bg-main);
   }
 
   /* ==========================================================
-     8. FLOATING CONTROLS (NÚT BẬT NHẠC & THEME)
+     6. FLOATING CONTROLS (TÙY CHỌN NHẠC & THEME)
   ========================================================== */
   .floating-controls {
     position: fixed;
@@ -435,104 +370,94 @@
     right: 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     z-index: 999;
   }
 
+  .widget-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
   .widget-btn {
-    width: 48px;
-    height: 48px;
+    width: 46px;
+    height: 46px;
     border-radius: 50%;
-    background: rgba(18, 18, 26, 0.9);
-    border: 1px solid var(--neon-cyan);
+    background: var(--bg-card);
+    border: 1px solid var(--neon-accent);
     color: var(--text-main);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
-    transition: all 0.3s ease;
-    font-size: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+    font-size: 18px;
   }
 
-  .widget-btn:hover {
-    transform: scale(1.1);
-    border-color: var(--neon-magenta);
-    box-shadow: 0 0 20px rgba(255, 0, 170, 0.7);
+  .widget-btn:hover { transform: scale(1.1); }
+
+  /* Volume slider xịn sò xuất hiện khi di chuột/bấm vào nhạc */
+  .volume-slider-pop {
+    position: absolute;
+    right: 56px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    padding: 8px 12px;
+    border-radius: 20px;
+    display: none;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   }
 
-  .music-btn.playing {
-    animation: spinDisc 3s linear infinite;
-    border-color: var(--neon-magenta);
+  .widget-wrap:hover .volume-slider-pop,
+  .widget-wrap:focus-within .volume-slider-pop {
+    display: flex;
   }
 
-  @keyframes spinDisc {
-    100% { transform: rotate(360deg); }
+  .volume-slider-pop input[type=range] {
+    width: 80px;
+    accent-color: var(--neon-accent);
+    cursor: pointer;
   }
 
-  /* ==========================================================
-     9. FOOTER & ANIMATIONS
-  ========================================================== */
   footer {
     text-align: center;
     font-size: 11px;
-    color: #555577;
+    color: var(--text-sub);
     margin-top: 28px;
   }
 
-  .heart {
-    display: inline-block;
-    filter: drop-shadow(0 0 4px rgba(255, 51, 85, 0.85));
-  }
-
   @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(12px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 </style>
 </head>
-<body>
+<body class="theme-dark">
 
-  <!-- Canvas tạo hạt bụi sáng -->
   <canvas id="particles-canvas"></canvas>
 
   <div class="container">
 
-    <!-- ===================== HEADER ===================== -->
+    <!-- HEADER -->
     <header class="profile-header">
       <div class="avatar-wrap">
-        <img class="avatar-img" src="logo.png" alt="P Edits Logo">
+        <img class="avatar-img" src="logo.png" alt="Logo">
       </div>
-
       <h1 class="channel-name">DHPhofn x P_sky Editz</h1>
       <p class="bio">Biến footage thường thành thước phim Anime 🔥</p>
-
       <span class="verified-badge">
-        <span class="check-icon">✓</span>
-        Verified Editor
+        <span class="check-icon">✓</span> Verified Editor
       </span>
     </header>
 
-    <!-- ===================== SECTION 1: FEATURED SHOWCASE VIDEO ===================== -->
-    <section class="showcase-section">
-      <div class="section-title">🎬 Video Showreel Edit</div>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Showreel Video Edit" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <!-- ===================== SECTION 2: REVIEWS KHÁCH HÀNG ===================== -->
+    <!-- REVIEWS -->
     <section class="reviews-section">
       <div class="section-title">⭐ Feedback Khách Hàng</div>
       <div class="reviews-slider">
-        
         <div class="review-card">
           <div class="review-header">
             <span class="review-user">@anime_editor</span>
@@ -540,7 +465,6 @@
           </div>
           <p class="review-text">"Edit video đỉnh cao luôn bro, chuyển cảnh mượt vãi chưởng!"</p>
         </div>
-
         <div class="review-card">
           <div class="review-header">
             <span class="review-user">@minh_gundam</span>
@@ -548,19 +472,10 @@
           </div>
           <p class="review-text">"Mua mô hình theo link Shopee chất lượng đét, gói hàng cực kĩ."</p>
         </div>
-
-        <div class="review-card">
-          <div class="review-header">
-            <span class="review-user">@dev_cyber</span>
-            <span class="review-stars">★★★★★</span>
-          </div>
-          <p class="review-text">"Color grade màu phim Anime cuốn cực kỳ. 100 điểm!"</p>
-        </div>
-
       </div>
     </section>
 
-    <!-- ===================== TAB LỌC DANH MỤC ===================== -->
+    <!-- TABS -->
     <div class="tabs-wrapper">
       <div class="tabs-container">
         <button class="tab-btn active" data-tab="all">Tất Cả ⚡</button>
@@ -571,11 +486,9 @@
       </div>
     </div>
 
-    <!-- ===================== DANH SÁCH LINK SẢN PHẨM ===================== -->
+    <!-- LINKS -->
     <main class="links-list" id="linksList">
-
-      <!-- ================= 1. MÔ HÌNH GUNDAM ================= -->
-      <a href="https://s.shopee.vn/2gAIErZrLW" data-category="mo-hinh" class="link-card animate" target="_blank" rel="noopener noreferrer">
+      <a href="https://s.shopee.vn/2gAIErZrLW" data-category="mo-hinh" class="link-card" target="_blank">
         <div class="link-icon">🤖</div>
         <div class="link-info">
           <div class="link-title">Mô Hình Gundam Mẫu 1</div>
@@ -584,172 +497,58 @@
         <span class="link-cta">Mua Ngay</span>
       </a>
 
-      <a href="https://s.shopee.vn/7VFXznKzW0" data-category="mo-hinh" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">🦾</div>
-        <div class="link-info">
-          <div class="link-title">Mô Hình Gundam Mẫu 2</div>
-          <div class="link-desc">Độ chi tiết cao, thích hợp decor góc máy</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-      <a href="https://s.shopee.vn/20ubRiIdqm" data-category="mo-hinh" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">⚔️</div>
-        <div class="link-info">
-          <div class="link-title">Mô Hình Gundam Mẫu 3</div>
-          <div class="link-desc">Trang bị vũ khí ngầu đét, chính hãng</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-      <a href="https://s.shopee.vn/4fvMceh17H" data-category="mo-hinh" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">🛡️</div>
-        <div class="link-info">
-          <div class="link-title">Mô Hình Gundam Mẫu 4</div>
-          <div class="link-desc">Dễ lắp ráp cho newbie, nhựa PVC bền đẹp</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-      <a href="https://s.shopee.vn/5LB3PuiU2i" data-category="mo-hinh" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">🚀</div>
-        <div class="link-info">
-          <div class="link-title">Mô Hình Gundam Mẫu 5</div>
-          <div class="link-desc">Mẫu Hot Trend, mua cực nhiều trên Shopee</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-
-      <!-- ================= 2. ĐÈN LED RGB DÁN BÀN 5M ================= -->
-      <a href="https://s.shopee.vn/9pdSmJyh2B" data-category="den-led" class="link-card animate" target="_blank" rel="noopener noreferrer">
+      <a href="https://s.shopee.vn/9pdSmJyh2B" data-category="den-led" class="link-card" target="_blank">
         <div class="link-icon">💡</div>
         <div class="link-info">
-          <div class="link-title">Đèn LED RGB Dán Bàn 5M (Loại 1)</div>
+          <div class="link-title">Đèn LED RGB Dán Bàn 5M</div>
           <div class="link-desc">Đổi màu App điện thoại, sync nhạc mượt</div>
         </div>
         <span class="link-cta">Mua Ngay</span>
       </a>
 
-      <a href="https://s.shopee.vn/4qEmpASC66" data-category="den-led" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">🔮</div>
-        <div class="link-info">
-          <div class="link-title">Đèn LED RGB Dán Bàn 5M (Loại 2)</div>
-          <div class="link-desc">LED bọc silicon chống nước, ánh sáng mịn</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-      <a href="https://s.shopee.vn/20ubRzpRMj" data-category="den-led" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">✨</div>
-        <div class="link-info">
-          <div class="link-title">Đèn LED RGB Dán Bàn 5M (Loại 3)</div>
-          <div class="link-desc">Kèm Remote điều khiển từ xa tiện lợi</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-      <a href="https://s.shopee.vn/80Bob2yR87" data-category="den-led" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">🌈</div>
-        <div class="link-info">
-          <div class="link-title">Đèn LED RGB Dán Bàn 5M (Loại 4)</div>
-          <div class="link-desc">Cuộn 5m sẵn keo 3M dính cực chắc</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-      <a href="https://s.shopee.vn/6VN0oK7jtH" data-category="den-led" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">⚡</div>
-        <div class="link-info">
-          <div class="link-title">Đèn LED RGB Dán Bàn 5M (Loại 5)</div>
-          <div class="link-desc">Chế độ hiệu ứng đuổi màu Neon rực rỡ</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-
-      <!-- ================= 3. BÀN PHÍM CƠ MINI 61 KEYS ================= -->
-      <a href="https://s.shopee.vn/BSxGmKctp" data-category="ban-phim" class="link-card animate" target="_blank" rel="noopener noreferrer">
+      <a href="https://s.shopee.vn/BSxGmKctp" data-category="ban-phim" class="link-card" target="_blank">
         <div class="link-icon">⌨️</div>
         <div class="link-info">
-          <div class="link-title">Bàn Phím Cơ Mini 61 Keys (Mẫu A)</div>
-          <div class="link-desc">Thiết kế nhỏ gọn, gõ gõ cực đã tay</div>
+          <div class="link-title">Bàn Phím Cơ Mini 61 Keys</div>
+          <div class="link-desc">Thiết kế nhỏ gọn, gõ cực đã tay</div>
         </div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
-      <a href="https://s.shopee.vn/904Ln2pyID" data-category="ban-phim" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">🔤</div>
-        <div class="link-info">
-          <div class="link-title">Bàn Phím Cơ Mini 61 Keys (Mẫu B)</div>
-          <div class="link-desc">LED RGB nhiều chế độ, kết nối Type-C</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-      <a href="https://s.shopee.vn/LmNT9Hl0Y" data-category="ban-phim" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">🎮</div>
-        <div class="link-info">
-          <div class="link-title">Bàn Phím Cơ Mini 61 Keys (Mẫu C)</div>
-          <div class="link-desc">Chuyên Game/Edit video, hotswap linh hoạt</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-
-      <!-- ================= 4. KẸP LIVESTREAM RING LIGHT ================= -->
-      <a href="https://s.shopee.vn/6L3acE1br3" data-category="kep-stream" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">📱</div>
-        <div class="link-info">
-          <div class="link-title">Kẹp Livestream Ring Light (Mẫu 1)</div>
-          <div class="link-desc">Đèn trợ sáng 3 chế độ, xoay 360 độ</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-      <a href="https://s.shopee.vn/9pdSmhiwt7" data-category="kep-stream" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">🎥</div>
-        <div class="link-info">
-          <div class="link-title">Kẹp Livestream Ring Light (Mẫu 2)</div>
-          <div class="link-desc">Chân đế chắc chắn, đứng vững không rung</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
-      <a href="https://s.shopee.vn/W5nfaVURb" data-category="kep-stream" class="link-card animate" target="_blank" rel="noopener noreferrer">
-        <div class="link-icon">🎙️</div>
-        <div class="link-info">
-          <div class="link-title">Kẹp Livestream Ring Light (Mẫu 3)</div>
-          <div class="link-desc">Đa năng kẹp điện thoại + Đèn trợ sáng Studio</div>
-        </div>
-        <span class="link-cta">Mua Ngay</span>
-      </a>
-
     </main>
 
-    <!-- ===================== FOOTER ===================== -->
     <footer>
-      Handcrafted with <span class="heart">❤️</span> by DHPhofn x P_sky Editz | Pure Cyberpunk Bio
+      Handcrafted with ❤️ by DHPhofn x P_sky Editz
     </footer>
 
   </div>
 
-  <!-- Nút Tiện Ích Floating Widgets -->
+  <!-- BỘ ĐIỀU KHIỂN NỔI (FLOATING CONTROLS) -->
   <div class="floating-controls">
-    <button class="widget-btn" id="themeBtn" title="Đổi màu Theme">🎨</button>
-    <button class="widget-btn music-btn" id="musicBtn" title="Bật/Tắt Nhạc">🎵</button>
+    <!-- Nút Đổi Theme Giao Diện -->
+    <button class="widget-btn" id="themeBtn" title="Đổi giao diện (Tối / Tím / Trắng Sọc Đen)">🎨</button>
+
+    <!-- Nút Đổi Bài Hát -->
+    <button class="widget-btn" id="nextTrackBtn" title="Đổi Bài Hát">🔀</button>
+
+    <!-- Nút Nhạc + Thanh Chỉnh Âm Lượng Max Speed -->
+    <div class="widget-wrap">
+      <div class="volume-slider-pop">
+        <span style="font-size: 11px;">🔊</span>
+        <input type="range" id="volumeControl" min="0" max="1" step="0.05" value="1">
+      </div>
+      <button class="widget-btn" id="musicBtn" title="Bật/Tắt Nhạc">🎵</button>
+    </div>
   </div>
 
-  <!-- File Nhạc Nền MP3 Lofi/Phonk nhẹ nhàng -->
+  <!-- AUDIO -->
   <audio id="bgMusic" loop preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+    <source id="musicSource" src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- ===================== JAVASCRIPT ===================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       
-      /* --- 1. Lọc Danh Mục Tabs --- */
+      /* --- 1. Lọc Danh Mục --- */
       const tabBtns = document.querySelectorAll('.tab-btn');
       const linkCards = document.querySelectorAll('.link-card');
 
@@ -757,17 +556,12 @@
         btn.addEventListener('click', () => {
           tabBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-
           const category = btn.getAttribute('data-tab');
 
           linkCards.forEach(card => {
             const cardCat = card.getAttribute('data-category');
-
             if (category === 'all' || cardCat === category) {
               card.style.display = 'flex';
-              card.classList.remove('animate');
-              void card.offsetWidth;
-              card.classList.add('animate');
             } else {
               card.style.display = 'none';
             }
@@ -775,7 +569,7 @@
         });
       });
 
-      /* --- 2. Hiệu ứng Hạt Bụi Sáng Particles --- */
+      /* --- 2. Canvas Hạt Bụi Sáng / Đen --- */
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
       let particles = [];
@@ -788,16 +582,13 @@
       resizeCanvas();
 
       class Particle {
-        constructor() {
-          this.reset();
-        }
+        constructor() { this.reset(); }
         reset() {
           this.x = Math.random() * canvas.width;
           this.y = Math.random() * canvas.height;
-          this.size = Math.random() * 2.5 + 1; // Hạt to rõ hơn
+          this.size = Math.random() * 2.5 + 1;
           this.speedX = (Math.random() - 0.5) * 0.6;
           this.speedY = -Math.random() * 0.8 - 0.3;
-          this.opacity = Math.random() * 0.8 + 0.3;
         }
         update() {
           this.x += this.speedX;
@@ -808,51 +599,78 @@
           }
         }
         draw() {
-          ctx.fillStyle = `rgba(0, 240, 255, ${this.opacity})`;
+          // Lấy màu hạt bụi trực tiếp từ CSS Variable
+          const pColor = getComputedStyle(document.body).getPropertyValue('--particle-color').trim();
+          ctx.fillStyle = pColor || 'rgba(0, 240, 255, 0.7)';
           ctx.beginPath();
           ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
           ctx.fill();
         }
       }
 
-      for (let i = 0; i < 60; i++) {
-        particles.push(new Particle());
-      }
+      for (let i = 0; i < 65; i++) particles.push(new Particle());
 
       function animateParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-          p.update();
-          p.draw();
-        });
+        particles.forEach(p => { p.update(); p.draw(); });
         requestAnimationFrame(animateParticles);
       }
       animateParticles();
 
-      /* --- 3. Xử Lý Trình Phát Nhạc --- */
+      /* --- 3. Quản Lý Trình Phát Nhạc & Âm Lượng --- */
       const musicBtn = document.getElementById('musicBtn');
+      const nextTrackBtn = document.getElementById('nextTrackBtn');
       const bgMusic = document.getElementById('bgMusic');
-      bgMusic.volume = 0.4;
+      const musicSource = document.getElementById('musicSource');
+      const volumeControl = document.getElementById('volumeControl');
 
+      // Tăng Volume mặc định lên 100%
+      bgMusic.volume = 1.0;
+
+      const playlist = [
+        "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3",
+        "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=chill-lofi-song-8444.mp3",
+        "https://cdn.pixabay.com/download/audio/2022/10/25/audio_226f30a9e2.mp3?filename=lofi-mellow-126296.mp3"
+      ];
+      let currentTrackIndex = 0;
+
+      // Bật/Tắt Nhạc
       musicBtn.addEventListener('click', () => {
         if (bgMusic.paused) {
           bgMusic.play().then(() => {
-            musicBtn.classList.add('playing');
             musicBtn.textContent = '🎶';
-          }).catch(err => {
-            console.log("Lỗi phát nhạc:", err);
-          });
+          }).catch(e => console.log(e));
         } else {
           bgMusic.pause();
-          musicBtn.classList.remove('playing');
           musicBtn.textContent = '🎵';
         }
       });
 
-      /* --- 4. Xử Lý Đổi Theme Màu --- */
+      // Đổi Bài Hát
+      nextTrackBtn.addEventListener('click', () => {
+        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+        musicSource.src = playlist[currentTrackIndex];
+        bgMusic.load();
+        bgMusic.play();
+        musicBtn.textContent = '🎶';
+      });
+
+      // Điều Chỉnh Âm Lượng
+      volumeControl.addEventListener('input', (e) => {
+        bgMusic.volume = e.target.value;
+      });
+
+      /* --- 4. Tùy Chọn Giao Diện (Theme Switcher 3 Chế Độ) --- */
       const themeBtn = document.getElementById('themeBtn');
+      const themes = ['theme-dark', 'theme-purple', 'theme-light'];
+      let currentThemeIndex = 0;
+
       themeBtn.addEventListener('click', () => {
-        document.body.classList.toggle('theme-purple');
+        document.body.classList.remove(themes[currentThemeIndex]);
+        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+        if (themes[currentThemeIndex] !== 'theme-dark') {
+          document.body.classList.add(themes[currentThemeIndex]);
+        }
       });
 
     });
