@@ -37,9 +37,12 @@
     --gradient-neon: linear-gradient(135deg, #00F0FF, #FF00AA);
   }
 
-  /* ==========================================================
-     2. BODY + BACKGROUND
-  ========================================================== */
+  body.theme-purple {
+    --gradient-neon: linear-gradient(135deg, #a855f7, #ec4899);
+    --neon-cyan: #c084fc;
+    --neon-magenta: #f472b6;
+  }
+
   html, body {
     min-height: 100%;
   }
@@ -57,25 +60,21 @@
     justify-content: center;
     overflow-x: hidden;
     position: relative;
-    padding-bottom: 40px;
+    padding-bottom: 60px;
+    transition: background-color 0.4s ease;
   }
 
-  body::before {
-    content: '';
+  /* ==========================================================
+     2. CANVAS HẠT BỤI SÁNG (PARTICLES)
+  ========================================================== */
+  #particles-canvas {
     position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background-image:
-      radial-gradient(1.5px 1.5px at 10% 15%, rgba(0, 240, 255, 0.6), transparent 60%),
-      radial-gradient(1.5px 1.5px at 85% 8%,  rgba(255, 0, 170, 0.5), transparent 60%),
-      radial-gradient(1px 1px at 45% 35%,     rgba(240, 240, 255, 0.4), transparent 60%),
-      radial-gradient(2px 2px at 70% 55%,     rgba(0, 240, 255, 0.4), transparent 60%),
-      radial-gradient(1px 1px at 20% 65%,     rgba(255, 0, 170, 0.4), transparent 60%),
-      radial-gradient(1.5px 1.5px at 90% 80%, rgba(0, 240, 255, 0.5), transparent 60%),
-      radial-gradient(1px 1px at 55% 90%,     rgba(240, 240, 255, 0.3), transparent 60%);
-    background-repeat: repeat;
-    background-size: 280px 280px;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
   }
 
   /* ==========================================================
@@ -83,7 +82,7 @@
   ========================================================== */
   .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     max-width: 480px;
     padding: 36px 14px 28px;
@@ -105,19 +104,6 @@
     margin-bottom: 24px;
   }
 
-  .avatar-wrap {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    padding: 3px;
-    background: var(--gradient-neon);
-    animation: avatarPulse 2s ease-in-out infinite;
-  }
-
-/* ==========================================================
-     FIX LOGO NÉT CĂNG KHI ANIMATION
-  ========================================================== */
   .avatar-wrap {
     width: 90px;
     height: 90px;
@@ -152,6 +138,7 @@
       box-shadow: 0 0 16px 3px rgba(255, 0, 170, 0.85), 0 0 32px 8px rgba(255, 0, 170, 0.4);
     }
   }
+
   .channel-name {
     font-family: 'Orbitron', sans-serif;
     font-size: 21px;
@@ -197,7 +184,98 @@
   }
 
   /* ==========================================================
-     5. CATEGORY TABS (HỖ TRỢ KÉO NGANG MƯỢT MÀ)
+     5. SHOWCASE VIDEO & REVIEWS
+  ========================================================== */
+  .section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--neon-cyan);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .showcase-section {
+    margin-bottom: 24px;
+  }
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    background: #000;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .reviews-section {
+    margin-bottom: 24px;
+  }
+
+  .reviews-slider {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 4px 2px 10px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .reviews-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .review-card {
+    flex: 0 0 230px;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 0, 170, 0.25);
+    border-radius: 12px;
+    padding: 12px 14px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .review-user {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+
+  .review-stars {
+    color: #ffd700;
+    font-size: 11px;
+  }
+
+  .review-text {
+    font-size: 11px;
+    color: var(--text-sub);
+    line-height: 1.4;
+  }
+
+  /* ==========================================================
+     6. CATEGORY TABS
   ========================================================== */
   .tabs-wrapper {
     margin-bottom: 20px;
@@ -205,12 +283,12 @@
     overflow-x: auto;
     overflow-y: hidden;
     padding: 6px 2px 10px;
-    scrollbar-width: none; /* Firefox */
-    -webkit-overflow-scrolling: touch; /* Mượt trên iOS */
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
 
   .tabs-wrapper::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none;
   }
 
   .tabs-container {
@@ -222,7 +300,7 @@
 
   @media (max-width: 480px) {
     .tabs-container {
-      margin: 0; /* Cho phép cuộn tràn trên điện thoại */
+      margin: 0;
     }
   }
 
@@ -258,7 +336,7 @@
   }
 
   /* ==========================================================
-     6. LINK CARDS
+     7. LINK CARDS
   ========================================================== */
   .links-list {
     display: flex;
@@ -349,7 +427,52 @@
   }
 
   /* ==========================================================
-     7. FOOTER & ANIMATIONS
+     8. FLOATING CONTROLS (NÚT BẬT NHẠC & THEME)
+  ========================================================== */
+  .floating-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+  }
+
+  .widget-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(18, 18, 26, 0.9);
+    border: 1px solid var(--neon-cyan);
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+    transition: all 0.3s ease;
+    font-size: 20px;
+  }
+
+  .widget-btn:hover {
+    transform: scale(1.1);
+    border-color: var(--neon-magenta);
+    box-shadow: 0 0 20px rgba(255, 0, 170, 0.7);
+  }
+
+  .music-btn.playing {
+    animation: spinDisc 3s linear infinite;
+    border-color: var(--neon-magenta);
+  }
+
+  @keyframes spinDisc {
+    100% { transform: rotate(360deg); }
+  }
+
+  /* ==========================================================
+     9. FOOTER & ANIMATIONS
   ========================================================== */
   footer {
     text-align: center;
@@ -373,71 +496,12 @@
       transform: translateY(0);
     }
   }
-  #particles-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Biến Theme Purple Cyberpunk */
-  body.theme-purple {
-    --gradient-neon: linear-gradient(135deg, #a855f7, #ec4899);
-    --neon-blue: #c084fc;
-    --neon-pink: #f472b6;
-  }
-
-  /* Bộ Điều Khiển Floating Widgets (Góc Màn Hình) */
-  .floating-controls {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 999;
-  }
-
-  .widget-btn {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: rgba(13, 14, 21, 0.85);
-    border: 1px solid rgba(0, 240, 255, 0.4);
-    color: var(--neon-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease;
-    font-size: 18px;
-  }
-
-  .widget-btn:hover {
-    transform: scale(1.1);
-    border-color: var(--neon-pink);
-    color: var(--neon-pink);
-    box-shadow: 0 0 15px rgba(255, 0, 170, 0.6);
-  }
-
-  /* Hiệu ứng Đĩa Quay khi Phát Nhạc */
-  .music-btn.playing {
-    animation: spinDisc 3s linear infinite;
-    border-color: var(--neon-pink);
-    color: var(--neon-pink);
-  }
-
-  @keyframes spinDisc {
-    100% { transform: rotate(360deg); }
-  }
 </style>
 </head>
 <body>
+
+  <!-- Canvas tạo hạt bụi sáng -->
+  <canvas id="particles-canvas"></canvas>
 
   <div class="container">
 
@@ -455,6 +519,46 @@
         Verified Editor
       </span>
     </header>
+
+    <!-- ===================== SECTION 1: FEATURED SHOWCASE VIDEO ===================== -->
+    <section class="showcase-section">
+      <div class="section-title">🎬 Video Showreel Edit</div>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Showreel Video Edit" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- ===================== SECTION 2: REVIEWS KHÁCH HÀNG ===================== -->
+    <section class="reviews-section">
+      <div class="section-title">⭐ Feedback Khách Hàng</div>
+      <div class="reviews-slider">
+        
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-user">@anime_editor</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">"Edit video đỉnh cao luôn bro, chuyển cảnh mượt vãi chưởng!"</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-user">@minh_gundam</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">"Mua mô hình theo link Shopee chất lượng đét, gói hàng cực kĩ."</p>
+        </div>
+
+        <div class="review-card">
+          <div class="review-header">
+            <span class="review-user">@dev_cyber</span>
+            <span class="review-stars">★★★★★</span>
+          </div>
+          <p class="review-text">"Color grade màu phim Anime cuốn cực kỳ. 100 điểm!"</p>
+        </div>
+
+      </div>
+    </section>
 
     <!-- ===================== TAB LỌC DANH MỤC ===================== -->
     <div class="tabs-wrapper">
@@ -625,14 +729,27 @@
 
     <!-- ===================== FOOTER ===================== -->
     <footer>
-      Handcrafted with <span class="heart">❤️</span> by DHPhofn x P_sky Editz | Built with pure HTML/CSS/JS
+      Handcrafted with <span class="heart">❤️</span> by DHPhofn x P_sky Editz | Pure Cyberpunk Bio
     </footer>
 
   </div>
 
-  <!-- ===================== JAVASCRIPT XỬ LÝ LỌC TAB ===================== -->
+  <!-- Nút Tiện Ích Floating Widgets -->
+  <div class="floating-controls">
+    <button class="widget-btn" id="themeBtn" title="Đổi màu Theme">🎨</button>
+    <button class="widget-btn music-btn" id="musicBtn" title="Bật/Tắt Nhạc">🎵</button>
+  </div>
+
+  <!-- File Nhạc Nền MP3 Lofi/Phonk nhẹ nhàng -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ===================== JAVASCRIPT ===================== -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      
+      /* --- 1. Lọc Danh Mục Tabs --- */
       const tabBtns = document.querySelectorAll('.tab-btn');
       const linkCards = document.querySelectorAll('.link-card');
 
@@ -649,7 +766,7 @@
             if (category === 'all' || cardCat === category) {
               card.style.display = 'flex';
               card.classList.remove('animate');
-              void card.offsetWidth; // Force Reflow
+              void card.offsetWidth;
               card.classList.add('animate');
             } else {
               card.style.display = 'none';
@@ -657,6 +774,87 @@
           });
         });
       });
+
+      /* --- 2. Hiệu ứng Hạt Bụi Sáng Particles --- */
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      class Particle {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2.5 + 1; // Hạt to rõ hơn
+          this.speedX = (Math.random() - 0.5) * 0.6;
+          this.speedY = -Math.random() * 0.8 - 0.3;
+          this.opacity = Math.random() * 0.8 + 0.3;
+        }
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.y < 0 || this.x < 0 || this.x > canvas.width) {
+            this.reset();
+            this.y = canvas.height;
+          }
+        }
+        draw() {
+          ctx.fillStyle = `rgba(0, 240, 255, ${this.opacity})`;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < 60; i++) {
+        particles.push(new Particle());
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        requestAnimationFrame(animateParticles);
+      }
+      animateParticles();
+
+      /* --- 3. Xử Lý Trình Phát Nhạc --- */
+      const musicBtn = document.getElementById('musicBtn');
+      const bgMusic = document.getElementById('bgMusic');
+      bgMusic.volume = 0.4;
+
+      musicBtn.addEventListener('click', () => {
+        if (bgMusic.paused) {
+          bgMusic.play().then(() => {
+            musicBtn.classList.add('playing');
+            musicBtn.textContent = '🎶';
+          }).catch(err => {
+            console.log("Lỗi phát nhạc:", err);
+          });
+        } else {
+          bgMusic.pause();
+          musicBtn.classList.remove('playing');
+          musicBtn.textContent = '🎵';
+        }
+      });
+
+      /* --- 4. Xử Lý Đổi Theme Màu --- */
+      const themeBtn = document.getElementById('themeBtn');
+      themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('theme-purple');
+      });
+
     });
   </script>
 
