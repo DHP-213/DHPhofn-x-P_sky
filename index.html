@@ -18,7 +18,7 @@
 
 <style>
   /* ==========================================================
-     1. RESET & CSS VARIABLES (CÁC THEME GIAO DIỆN)
+     1. RESET & CSS VARIABLES (THEMES)
   ========================================================== */
   * {
     margin: 0;
@@ -53,7 +53,7 @@
     --gradient-avatar: linear-gradient(135deg, #a855f7, #ec4899);
   }
 
-  /* ⚪ Theme 3: Light Cyber (Trắng Sọc Đen, Hạt Đen) */
+  /* ⚪ Theme 3: Light Cyber */
   body.theme-light {
     --bg-main: #FFFFFF;
     --bg-grid: rgba(0, 0, 0, 0.12);
@@ -227,12 +227,11 @@
   .link-card:hover .link-cta { background: var(--neon-accent); color: var(--bg-main); }
 
   /* ==========================================================
-     5. FLOATING CONTROLS & BẢNG POPUP TÙY CHỌN
+     5. NÚT ĐỔI THEME GIAO DIỆN NỔI
   ========================================================== */
   .floating-controls {
     position: fixed;
     bottom: 20px; right: 20px;
-    display: flex; flex-direction: column; gap: 12px;
     z-index: 999;
   }
 
@@ -254,7 +253,7 @@
   .custom-popup {
     position: fixed;
     bottom: 80px; right: 20px;
-    width: 270px;
+    width: 250px;
     background: var(--bg-card);
     border: 1px solid var(--border-card);
     border-radius: 16px;
@@ -286,41 +285,6 @@
     color: var(--text-sub); font-size: 16px;
     cursor: pointer;
   }
-
-  .play-toggle-btn {
-    background: var(--neon-accent);
-    color: var(--bg-main);
-    border: none;
-    padding: 8px 12px;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 12px;
-    cursor: pointer;
-    text-align: center;
-    transition: opacity 0.2s;
-  }
-
-  .play-toggle-btn:hover { opacity: 0.9; }
-
-  .track-list { display: flex; flex-direction: column; gap: 6px; }
-
-  .track-item {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-card);
-    color: var(--text-main);
-    padding: 8px 10px; border-radius: 8px;
-    font-size: 11px; cursor: pointer; text-align: left;
-    transition: all 0.2s ease;
-  }
-
-  .track-item:hover, .track-item.active {
-    border-color: var(--neon-accent);
-    color: var(--neon-accent);
-    background: rgba(0, 240, 255, 0.08);
-  }
-
-  .volume-box { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-sub); }
-  .volume-box input[type=range] { flex: 1; accent-color: var(--neon-accent); cursor: pointer; }
 
   .theme-options { display: flex; flex-direction: column; gap: 8px; }
 
@@ -364,7 +328,7 @@
       </span>
     </header>
 
-    <!-- TABS -->
+    <!-- TABS DANH MỤC -->
     <div class="tabs-wrapper">
       <div class="tabs-container">
         <button class="tab-btn active" data-tab="all">Tất Cả ⚡</button>
@@ -375,8 +339,10 @@
       </div>
     </div>
 
-    <!-- LINKS -->
+    <!-- DANH SÁCH SẢN PHẨM (ĐÃ ĐẦY ĐỦ NHƯ CŨ) -->
     <main class="links-list" id="linksList">
+
+      <!-- MÔ HÌNH -->
       <a href="https://s.shopee.vn/2gAIErZrLW" data-category="mo-hinh" class="link-card" target="_blank">
         <div class="link-icon">🤖</div>
         <div class="link-info">
@@ -386,6 +352,7 @@
         <span class="link-cta">Mua Ngay</span>
       </a>
 
+      <!-- ĐÈN LED -->
       <a href="https://s.shopee.vn/9pdSmJyh2B" data-category="den-led" class="link-card" target="_blank">
         <div class="link-icon">💡</div>
         <div class="link-info">
@@ -395,6 +362,7 @@
         <span class="link-cta">Mua Ngay</span>
       </a>
 
+      <!-- BÀN PHÍM -->
       <a href="https://s.shopee.vn/BSxGmKctp" data-category="ban-phim" class="link-card" target="_blank">
         <div class="link-icon">⌨️</div>
         <div class="link-info">
@@ -403,6 +371,17 @@
         </div>
         <span class="link-cta">Mua Ngay</span>
       </a>
+
+      <!-- KẸP STREAM -->
+      <a href="https://s.shopee.vn/9f1OqW2v9K" data-category="kep-stream" class="link-card" target="_blank">
+        <div class="link-icon">📱</div>
+        <div class="link-info">
+          <div class="link-title">Giá Đỡ / Kẹp Điện Thoại Stream</div>
+          <div class="link-desc">Xoay 360 độ, chân kim loại chắc chắn</div>
+        </div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
     </main>
 
     <footer>
@@ -411,32 +390,10 @@
 
   </div>
 
-  <!-- POPUP PANEL TÙY CHỌN NHẠC -->
-  <div class="custom-popup" id="musicPopup">
-    <div class="popup-title">
-      <span>🎵 Tùy Chọn Trình Phát</span>
-      <button class="close-popup-btn" id="closeMusicPopup">✕</button>
-    </div>
-
-    <button class="play-toggle-btn" id="playToggleBtn">▶️ Phát Nhạc Ngay</button>
-
-    <div class="track-list">
-      <!-- Đã đổi sang dàn Link CDN GitHub Media siêu ổn định, không bao giờ lỗi 403 -->
-      <button class="track-item active" data-src="https://raw.githubusercontent.com/rafaelreis-hotmart/Audio-Sample-files/main/sample.mp3">🎼 Bài 1: Lofi Chill Vibe</button>
-      <button class="track-item" data-src="https://cdn.freesound.org/previews/612/612621_5674468-lq.mp3">🎹 Bài 2: Cyber Synthwave</button>
-      <button class="track-item" data-src="https://cdn.freesound.org/previews/580/580312_11861866-lq.mp3">🎧 Bài 3: Midnight Beat</button>
-    </div>
-
-    <div class="volume-box">
-      <span>🔊 Âm lượng:</span>
-      <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="1">
-    </div>
-  </div>
-
-  <!-- POPUP PANEL TÙY CHỌN THEME -->
+  <!-- POPUP CÀI ĐẶT THEME -->
   <div class="custom-popup" id="themePopup">
     <div class="popup-title">
-      <span>🎨 Tùy Chọn Giao Diện</span>
+      <span>🎨 Chọn Giao Diện</span>
       <button class="close-popup-btn" id="closeThemePopup">✕</button>
     </div>
     <div class="theme-options">
@@ -452,16 +409,10 @@
     </div>
   </div>
 
-  <!-- FLOATING BUTTONS -->
+  <!-- FLOATING BUTTON (CHỈ CÒN ĐỔI THEME) -->
   <div class="floating-controls">
     <button class="widget-btn" id="openThemeBtn" title="Tùy chọn giao diện">🎨</button>
-    <button class="widget-btn" id="openMusicBtn" title="Tùy chọn trình phát nhạc">🎵</button>
   </div>
-
-  <!-- THẺ AUDIO CHUẨN HTML5 -->
-  <audio id="bgMusic" loop preload="auto">
-    <source id="musicSource" src="https://raw.githubusercontent.com/rafaelreis-hotmart/Audio-Sample-files/main/sample.mp3" type="audio/mpeg">
-  </audio>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -534,73 +485,17 @@
       }
       animateParticles();
 
-      /* --- 3. Quản Lý Pop-up Panel & Nhạc --- */
-      const openMusicBtn = document.getElementById('openMusicBtn');
+      /* --- 3. Đổi Giao Diện Theme --- */
       const openThemeBtn = document.getElementById('openThemeBtn');
-      const musicPopup = document.getElementById('musicPopup');
       const themePopup = document.getElementById('themePopup');
-      const closeMusicPopup = document.getElementById('closeMusicPopup');
       const closeThemePopup = document.getElementById('closeThemePopup');
 
-      const bgMusic = document.getElementById('bgMusic');
-      const musicSource = document.getElementById('musicSource');
-      const playToggleBtn = document.getElementById('playToggleBtn');
-      const volumeSlider = document.getElementById('volumeSlider');
-
-      bgMusic.volume = 1.0;
-
-      openMusicBtn.addEventListener('click', () => {
-        themePopup.classList.remove('active');
-        musicPopup.classList.toggle('active');
-      });
-
       openThemeBtn.addEventListener('click', () => {
-        musicPopup.classList.remove('active');
         themePopup.classList.toggle('active');
       });
 
-      closeMusicPopup.addEventListener('click', () => musicPopup.classList.remove('active'));
       closeThemePopup.addEventListener('click', () => themePopup.classList.remove('active'));
 
-      // Bật/Tắt Nhạc
-      playToggleBtn.addEventListener('click', () => {
-        if (bgMusic.paused) {
-          bgMusic.play().then(() => {
-            playToggleBtn.textContent = '⏸️ Tạm Dừng Nhạc';
-            openMusicBtn.textContent = '🎶';
-          }).catch(err => {
-            console.log("Lỗi phát nhạc:", err);
-          });
-        } else {
-          bgMusic.pause();
-          playToggleBtn.textContent = '▶️ Phát Nhạc Ngay';
-          openMusicBtn.textContent = '🎵';
-        }
-      });
-
-      // Đổi Bài Hát
-      const trackItems = document.querySelectorAll('.track-item');
-      trackItems.forEach(item => {
-        item.addEventListener('click', () => {
-          trackItems.forEach(t => t.classList.remove('active'));
-          item.classList.add('active');
-
-          const newSrc = item.getAttribute('data-src');
-          musicSource.src = newSrc;
-          bgMusic.load();
-          bgMusic.play().then(() => {
-            playToggleBtn.textContent = '⏸️ Tạm Dừng Nhạc';
-            openMusicBtn.textContent = '🎶';
-          }).catch(err => console.log(err));
-        });
-      });
-
-      // Chỉnh Âm Lượng
-      volumeSlider.addEventListener('input', (e) => {
-        bgMusic.volume = e.target.value;
-      });
-
-      // Đổi Theme Giao Diện
       const themeOptionBtns = document.querySelectorAll('.theme-option-btn');
       themeOptionBtns.forEach(btn => {
         btn.addEventListener('click', () => {
