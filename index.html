@@ -18,7 +18,7 @@
 
 <style>
   /* ==========================================================
-     1. RESET & CSS VARIABLES (CÁC MÀU THEME)
+     1. RESET & CSS VARIABLES (CÁC THEME GIAO DIỆN)
   ========================================================== */
   * {
     margin: 0;
@@ -27,12 +27,12 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* 🌌 Theme 1: Neon Cyan Default */
+  /* 🌌 Theme 1: Cyberpunk Dark */
   :root {
     --bg-main: #0A0A0F;
     --bg-grid: rgba(0, 240, 255, 0.05);
     --bg-card: #12121A;
-    --border-card: rgba(0, 240, 255, 0.2);
+    --border-card: rgba(0, 240, 255, 0.25);
     --text-main: #F0F0FF;
     --text-sub: #8888AA;
     --neon-accent: #00F0FF;
@@ -45,7 +45,7 @@
     --bg-main: #0F0A18;
     --bg-grid: rgba(192, 132, 252, 0.06);
     --bg-card: #1A1228;
-    --border-card: rgba(192, 132, 252, 0.25);
+    --border-card: rgba(192, 132, 252, 0.3);
     --text-main: #FAF5FF;
     --text-sub: #A892C6;
     --neon-accent: #C084FC;
@@ -53,22 +53,20 @@
     --gradient-avatar: linear-gradient(135deg, #a855f7, #ec4899);
   }
 
-  /* ⚪ Theme 3: Light Cyber (Nền Trắng Sọc Đen, Hạt Đen) */
+  /* ⚪ Theme 3: Light Cyber (Trắng Sọc Đen, Hạt Đen) */
   body.theme-light {
-    --bg-main: #F4F4F7;
-    --bg-grid: rgba(0, 0, 0, 0.08);
-    --bg-card: #FFFFFF;
-    --border-card: rgba(0, 0, 0, 0.15);
+    --bg-main: #FFFFFF;
+    --bg-grid: rgba(0, 0, 0, 0.12);
+    --bg-card: #F4F4F8;
+    --border-card: rgba(0, 0, 0, 0.2);
     --text-main: #111118;
     --text-sub: #555566;
     --neon-accent: #000000;
-    --particle-color: rgba(0, 0, 0, 0.6);
+    --particle-color: rgba(0, 0, 0, 0.65);
     --gradient-avatar: linear-gradient(135deg, #111111, #666666);
   }
 
-  html, body {
-    min-height: 100%;
-  }
+  html, body { min-height: 100%; }
 
   body {
     background-color: var(--bg-main);
@@ -88,14 +86,12 @@
   }
 
   /* ==========================================================
-     2. PARTICLES CANVAS
+     2. CANVAS HẠT BỤI
   ========================================================== */
   #particles-canvas {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
     pointer-events: none;
     z-index: 1;
   }
@@ -110,23 +106,16 @@
   }
 
   @media (min-width: 768px) {
-    .container {
-      max-width: 560px;
-      padding: 50px 20px 40px;
-    }
+    .container { max-width: 560px; padding: 50px 20px 40px; }
   }
 
   /* ==========================================================
      3. HEADER
   ========================================================== */
-  .profile-header {
-    text-align: center;
-    margin-bottom: 24px;
-  }
+  .profile-header { text-align: center; margin-bottom: 24px; }
 
   .avatar-wrap {
-    width: 90px;
-    height: 90px;
+    width: 90px; height: 90px;
     margin: 0 auto 16px;
     border-radius: 50%;
     padding: 3px;
@@ -135,8 +124,7 @@
   }
 
   .avatar-img {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     border-radius: 50%;
     object-fit: cover;
     display: block;
@@ -144,148 +132,54 @@
   }
 
   @keyframes avatarPulse {
-    0%, 100% {
-      transform: scale(1);
-      box-shadow: 0 0 12px 2px var(--neon-accent);
-    }
-    50% {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px 4px var(--neon-accent);
-    }
+    0%, 100% { transform: scale(1); box-shadow: 0 0 12px 2px var(--neon-accent); }
+    50% { transform: scale(1.03); box-shadow: 0 0 20px 4px var(--neon-accent); }
   }
 
   .channel-name {
     font-family: 'Orbitron', sans-serif;
-    font-size: 21px;
-    font-weight: 700;
+    font-size: 21px; font-weight: 700;
     letter-spacing: 1px;
     color: var(--text-main);
     margin-bottom: 6px;
   }
 
-  .bio {
-    font-size: 13px;
-    color: var(--text-sub);
-    line-height: 1.4;
-    padding: 0 10px;
-    margin-bottom: 14px;
-  }
+  .bio { font-size: 13px; color: var(--text-sub); line-height: 1.4; padding: 0 10px; margin-bottom: 14px; }
 
   .verified-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    display: inline-flex; align-items: center; gap: 6px;
     border: 1px solid var(--neon-accent);
     color: var(--text-main);
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 11px; font-weight: 600;
     border-radius: 20px;
     padding: 4px 12px 4px 5px;
     background: rgba(0, 0, 0, 0.05);
   }
 
   .verified-badge .check-icon {
-    width: 14px;
-    height: 14px;
+    width: 14px; height: 14px;
     border-radius: 50%;
     background: var(--neon-accent);
     color: var(--bg-main);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 9px;
-    font-weight: 900;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 9px; font-weight: 900;
   }
 
   /* ==========================================================
-     4. REVIEWS KHÁCH HÀNG
+     4. TABS & LINK CARDS
   ========================================================== */
-  .section-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--neon-accent);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
-
-  .reviews-section {
-    margin-bottom: 24px;
-  }
-
-  .reviews-slider {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding: 4px 2px 10px;
-    scrollbar-width: none;
-  }
-
-  .reviews-slider::-webkit-scrollbar { display: none; }
-
-  .review-card {
-    flex: 0 0 230px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-card);
-    border-radius: 12px;
-    padding: 12px 14px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  }
-
-  .review-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 6px;
-  }
-
-  .review-user {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--text-main);
-  }
-
-  .review-stars {
-    color: #ffd700;
-    font-size: 11px;
-  }
-
-  .review-text {
-    font-size: 11px;
-    color: var(--text-sub);
-    line-height: 1.4;
-  }
-
-  /* ==========================================================
-     5. TABS & LINK CARDS
-  ========================================================== */
-  .tabs-wrapper {
-    margin-bottom: 20px;
-    overflow-x: auto;
-    padding: 4px 2px 8px;
-    scrollbar-width: none;
-  }
-
+  .tabs-wrapper { margin-bottom: 20px; overflow-x: auto; padding: 4px 2px 8px; scrollbar-width: none; }
   .tabs-wrapper::-webkit-scrollbar { display: none; }
 
-  .tabs-container {
-    display: flex;
-    gap: 8px;
-    width: max-content;
-    margin: 0 auto;
-  }
+  .tabs-container { display: flex; gap: 8px; width: max-content; margin: 0 auto; }
 
   .tab-btn {
     background: var(--bg-card);
     border: 1px solid var(--border-card);
     color: var(--text-sub);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 8px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.25s ease;
+    font-size: 12px; font-weight: 600;
+    padding: 8px 12px; border-radius: 20px;
+    cursor: pointer; transition: all 0.25s ease;
     white-space: nowrap;
   }
 
@@ -295,140 +189,144 @@
     background: rgba(0, 0, 0, 0.05);
   }
 
-  .links-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+  .links-list { display: flex; flex-direction: column; gap: 12px; }
 
   .link-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    display: flex; align-items: center; gap: 12px;
     background: var(--bg-card);
     border: 1px solid var(--border-card);
     border-radius: 14px;
     padding: 14px 16px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none; color: inherit;
     transition: transform 0.2s ease, border-color 0.2s ease;
   }
 
-  .link-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--neon-accent);
-  }
+  .link-card:hover { transform: translateY(-2px); border-color: var(--neon-accent); }
 
   .link-icon {
-    width: 38px;
-    height: 38px;
+    width: 38px; height: 38px;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    background: rgba(0, 0, 0, 0.04);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; background: rgba(0, 0, 0, 0.04);
     border: 1px solid var(--border-card);
   }
 
   .link-info { flex: 1; min-width: 0; }
-
-  .link-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-main);
-    margin-bottom: 2px;
-  }
-
-  .link-desc {
-    font-size: 11px;
-    color: var(--text-sub);
-  }
+  .link-title { font-size: 14px; font-weight: 600; color: var(--text-main); margin-bottom: 2px; }
+  .link-desc { font-size: 11px; color: var(--text-sub); }
 
   .link-cta {
     border: 1px solid var(--neon-accent);
     color: var(--neon-accent);
-    font-size: 11px;
-    font-weight: 700;
-    border-radius: 18px;
-    padding: 5px 12px;
+    font-size: 11px; font-weight: 700;
+    border-radius: 18px; padding: 5px 12px;
     white-space: nowrap;
   }
 
-  .link-card:hover .link-cta {
-    background: var(--neon-accent);
-    color: var(--bg-main);
-  }
+  .link-card:hover .link-cta { background: var(--neon-accent); color: var(--bg-main); }
 
   /* ==========================================================
-     6. FLOATING CONTROLS (TÙY CHỌN NHẠC & THEME)
+     5. FLOATING CONTROLS & BẢNG POPUP TÙY CHỌN
   ========================================================== */
   .floating-controls {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    bottom: 20px; right: 20px;
+    display: flex; flex-direction: column; gap: 12px;
     z-index: 999;
   }
 
-  .widget-wrap {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-
   .widget-btn {
-    width: 46px;
-    height: 46px;
+    width: 48px; height: 48px;
     border-radius: 50%;
     background: var(--bg-card);
-    border: 1px solid var(--neon-accent);
+    border: 1px solid var(--border-card);
     color: var(--text-main);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: transform 0.2s;
-    font-size: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    font-size: 20px;
   }
 
-  .widget-btn:hover { transform: scale(1.1); }
+  .widget-btn:hover { transform: scale(1.1); border-color: var(--neon-accent); }
 
-  /* Volume slider xịn sò xuất hiện khi di chuột/bấm vào nhạc */
-  .volume-slider-pop {
-    position: absolute;
-    right: 56px;
+  /* Pop-up Modal Panel */
+  .custom-popup {
+    position: fixed;
+    bottom: 80px; right: 20px;
+    width: 260px;
     background: var(--bg-card);
     border: 1px solid var(--border-card);
-    padding: 8px 12px;
-    border-radius: 20px;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     display: none;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1000;
+    animation: popUpAnim 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
   }
 
-  .widget-wrap:hover .volume-slider-pop,
-  .widget-wrap:focus-within .volume-slider-pop {
-    display: flex;
+  .custom-popup.active { display: flex; }
+
+  @keyframes popUpAnim {
+    from { opacity: 0; transform: translateY(15px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  .volume-slider-pop input[type=range] {
-    width: 80px;
-    accent-color: var(--neon-accent);
+  .popup-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px; font-weight: 700;
+    color: var(--neon-accent);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .close-popup-btn {
+    background: none; border: none;
+    color: var(--text-sub); font-size: 16px;
     cursor: pointer;
   }
 
-  footer {
-    text-align: center;
-    font-size: 11px;
-    color: var(--text-sub);
-    margin-top: 28px;
+  /* Controls bên trong Popup Nhạc */
+  .track-list { display: flex; flex-direction: column; gap: 6px; }
+
+  .track-item {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-card);
+    color: var(--text-main);
+    padding: 8px 10px; border-radius: 8px;
+    font-size: 11px; cursor: pointer; text-align: left;
+    transition: all 0.2s ease;
   }
+
+  .track-item:hover, .track-item.active {
+    border-color: var(--neon-accent);
+    color: var(--neon-accent);
+    background: rgba(0, 240, 255, 0.08);
+  }
+
+  .volume-box { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-sub); }
+  .volume-box input[type=range] { flex: 1; accent-color: var(--neon-accent); cursor: pointer; }
+
+  /* Controls bên trong Popup Theme */
+  .theme-options { display: flex; flex-direction: column; gap: 8px; }
+
+  .theme-option-btn {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-card);
+    color: var(--text-main);
+    padding: 8px 12px; border-radius: 8px;
+    font-size: 12px; cursor: pointer; text-align: left;
+    transition: all 0.2s ease;
+  }
+
+  .theme-option-btn:hover { border-color: var(--neon-accent); color: var(--neon-accent); }
+
+  .color-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid #fff; }
+
+  footer { text-align: center; font-size: 11px; color: var(--text-sub); margin-top: 28px; }
 
   @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(12px); }
@@ -436,7 +334,7 @@
   }
 </style>
 </head>
-<body class="theme-dark">
+<body>
 
   <canvas id="particles-canvas"></canvas>
 
@@ -453,27 +351,6 @@
         <span class="check-icon">✓</span> Verified Editor
       </span>
     </header>
-
-    <!-- REVIEWS -->
-    <section class="reviews-section">
-      <div class="section-title">⭐ Feedback Khách Hàng</div>
-      <div class="reviews-slider">
-        <div class="review-card">
-          <div class="review-header">
-            <span class="review-user">@anime_editor</span>
-            <span class="review-stars">★★★★★</span>
-          </div>
-          <p class="review-text">"Edit video đỉnh cao luôn bro, chuyển cảnh mượt vãi chưởng!"</p>
-        </div>
-        <div class="review-card">
-          <div class="review-header">
-            <span class="review-user">@minh_gundam</span>
-            <span class="review-stars">★★★★★</span>
-          </div>
-          <p class="review-text">"Mua mô hình theo link Shopee chất lượng đét, gói hàng cực kĩ."</p>
-        </div>
-      </div>
-    </section>
 
     <!-- TABS -->
     <div class="tabs-wrapper">
@@ -522,25 +399,48 @@
 
   </div>
 
-  <!-- BỘ ĐIỀU KHIỂN NỔI (FLOATING CONTROLS) -->
-  <div class="floating-controls">
-    <!-- Nút Đổi Theme Giao Diện -->
-    <button class="widget-btn" id="themeBtn" title="Đổi giao diện (Tối / Tím / Trắng Sọc Đen)">🎨</button>
-
-    <!-- Nút Đổi Bài Hát -->
-    <button class="widget-btn" id="nextTrackBtn" title="Đổi Bài Hát">🔀</button>
-
-    <!-- Nút Nhạc + Thanh Chỉnh Âm Lượng Max Speed -->
-    <div class="widget-wrap">
-      <div class="volume-slider-pop">
-        <span style="font-size: 11px;">🔊</span>
-        <input type="range" id="volumeControl" min="0" max="1" step="0.05" value="1">
-      </div>
-      <button class="widget-btn" id="musicBtn" title="Bật/Tắt Nhạc">🎵</button>
+  <!-- POPUP PANEL TÙY CHỌN NHẠC -->
+  <div class="custom-popup" id="musicPopup">
+    <div class="popup-title">
+      <span>🎵 Tùy Chọn Trình Phát</span>
+      <button class="close-popup-btn" id="closeMusicPopup">✕</button>
+    </div>
+    <div class="track-list">
+      <button class="track-item active" data-src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3">🎼 Bài 1: Lofi Study Chill</button>
+      <button class="track-item" data-src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=chill-lofi-song-8444.mp3">🎹 Bài 2: Night Vibe Lofi</button>
+      <button class="track-item" data-src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_226f30a9e2.mp3?filename=lofi-mellow-126296.mp3">🎧 Bài 3: Midnight Phonk</button>
+    </div>
+    <div class="volume-box">
+      <span>🔊 Max Vol:</span>
+      <input type="range" id="volumeSlider" min="0" max="3" step="0.1" value="1.5">
     </div>
   </div>
 
-  <!-- AUDIO -->
+  <!-- POPUP PANEL TÙY CHỌN THEME -->
+  <div class="custom-popup" id="themePopup">
+    <div class="popup-title">
+      <span>🎨 Tùy Chọn Giao Diện</span>
+      <button class="close-popup-btn" id="closeThemePopup">✕</button>
+    </div>
+    <div class="theme-options">
+      <button class="theme-option-btn" data-theme="dark">
+        <span class="color-dot" style="background: #00F0FF;"></span> 🌌 Cyberpunk Tối
+      </button>
+      <button class="theme-option-btn" data-theme="purple">
+        <span class="color-dot" style="background: #C084FC;"></span> 🔮 Tím Neon Anime
+      </button>
+      <button class="theme-option-btn" data-theme="light">
+        <span class="color-dot" style="background: #000000;"></span> ⚪ Trắng Sọc Đen (Hạt Đen)
+      </button>
+    </div>
+  </div>
+
+  <!-- FLOATING BUTTONS -->
+  <div class="floating-controls">
+    <button class="widget-btn" id="openThemeBtn" title="Tùy chọn giao diện">🎨</button>
+    <button class="widget-btn" id="openMusicBtn" title="Tùy chọn trình phát nhạc">🎵</button>
+  </div>
+
   <audio id="bgMusic" loop preload="auto">
     <source id="musicSource" src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
   </audio>
@@ -569,7 +469,7 @@
         });
       });
 
-      /* --- 2. Canvas Hạt Bụi Sáng / Đen --- */
+      /* --- 2. Canvas Hạt Bụi Động --- */
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
       let particles = [];
@@ -599,7 +499,6 @@
           }
         }
         draw() {
-          // Lấy màu hạt bụi trực tiếp từ CSS Variable
           const pColor = getComputedStyle(document.body).getPropertyValue('--particle-color').trim();
           ctx.fillStyle = pColor || 'rgba(0, 240, 255, 0.7)';
           ctx.beginPath();
@@ -617,60 +516,79 @@
       }
       animateParticles();
 
-      /* --- 3. Quản Lý Trình Phát Nhạc & Âm Lượng --- */
-      const musicBtn = document.getElementById('musicBtn');
-      const nextTrackBtn = document.getElementById('nextTrackBtn');
+      /* --- 3. Âm Lượng Nhạc Siêu To (Khuếch Đại Web Audio API) --- */
       const bgMusic = document.getElementById('bgMusic');
-      const musicSource = document.getElementById('musicSource');
-      const volumeControl = document.getElementById('volumeControl');
+      let audioCtx, gainNode, sourceNode;
 
-      // Tăng Volume mặc định lên 100%
-      bgMusic.volume = 1.0;
+      function initAudioBoost() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          gainNode = audioCtx.createGain();
+          sourceNode = audioCtx.createMediaElementSource(bgMusic);
+          sourceNode.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+          gainNode.gain.value = 1.5; // Đẩy âm lượng mặc định lên gấp rưỡi
+        }
+      }
 
-      const playlist = [
-        "https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3",
-        "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=chill-lofi-song-8444.mp3",
-        "https://cdn.pixabay.com/download/audio/2022/10/25/audio_226f30a9e2.mp3?filename=lofi-mellow-126296.mp3"
-      ];
-      let currentTrackIndex = 0;
+      /* --- 4. Quản Lý Pop-up Panel & Nút Bấm --- */
+      const openMusicBtn = document.getElementById('openMusicBtn');
+      const openThemeBtn = document.getElementById('openThemeBtn');
+      const musicPopup = document.getElementById('musicPopup');
+      const themePopup = document.getElementById('themePopup');
+      const closeMusicPopup = document.getElementById('closeMusicPopup');
+      const closeThemePopup = document.getElementById('closeThemePopup');
 
-      // Bật/Tắt Nhạc
-      musicBtn.addEventListener('click', () => {
-        if (bgMusic.paused) {
-          bgMusic.play().then(() => {
-            musicBtn.textContent = '🎶';
-          }).catch(e => console.log(e));
-        } else {
-          bgMusic.pause();
-          musicBtn.textContent = '🎵';
+      openMusicBtn.addEventListener('click', () => {
+        themePopup.classList.remove('active');
+        musicPopup.classList.toggle('active');
+      });
+
+      openThemeBtn.addEventListener('click', () => {
+        musicPopup.classList.remove('active');
+        themePopup.classList.toggle('active');
+      });
+
+      closeMusicPopup.addEventListener('click', () => musicPopup.classList.remove('active'));
+      closeThemePopup.addEventListener('click', () => themePopup.classList.remove('active'));
+
+      // Đổi Bài Hát & Bật Âm Thanh
+      const trackItems = document.querySelectorAll('.track-item');
+      trackItems.forEach(item => {
+        item.addEventListener('click', () => {
+          initAudioBoost();
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+
+          trackItems.forEach(t => t.classList.remove('active'));
+          item.classList.add('active');
+
+          const newSrc = item.getAttribute('data-src');
+          document.getElementById('musicSource').src = newSrc;
+          bgMusic.load();
+          bgMusic.play();
+          openMusicBtn.textContent = '🎶';
+        });
+      });
+
+      // Thanh Trượt Tăng Giảm Âm Lượng Max Boost
+      const volumeSlider = document.getElementById('volumeSlider');
+      volumeSlider.addEventListener('input', (e) => {
+        initAudioBoost();
+        if (gainNode) {
+          gainNode.gain.value = e.target.value;
         }
       });
 
-      // Đổi Bài Hát
-      nextTrackBtn.addEventListener('click', () => {
-        currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
-        musicSource.src = playlist[currentTrackIndex];
-        bgMusic.load();
-        bgMusic.play();
-        musicBtn.textContent = '🎶';
-      });
-
-      // Điều Chỉnh Âm Lượng
-      volumeControl.addEventListener('input', (e) => {
-        bgMusic.volume = e.target.value;
-      });
-
-      /* --- 4. Tùy Chọn Giao Diện (Theme Switcher 3 Chế Độ) --- */
-      const themeBtn = document.getElementById('themeBtn');
-      const themes = ['theme-dark', 'theme-purple', 'theme-light'];
-      let currentThemeIndex = 0;
-
-      themeBtn.addEventListener('click', () => {
-        document.body.classList.remove(themes[currentThemeIndex]);
-        currentThemeIndex = (currentThemeIndex + 1) % themes.length;
-        if (themes[currentThemeIndex] !== 'theme-dark') {
-          document.body.classList.add(themes[currentThemeIndex]);
-        }
+      // Đổi Theme
+      const themeOptionBtns = document.querySelectorAll('.theme-option-btn');
+      themeOptionBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const theme = btn.getAttribute('data-theme');
+          document.body.classList.remove('theme-purple', 'theme-light');
+          if (theme === 'purple') document.body.classList.add('theme-purple');
+          if (theme === 'light') document.body.classList.add('theme-light');
+          themePopup.classList.remove('active');
+        });
       });
 
     });
