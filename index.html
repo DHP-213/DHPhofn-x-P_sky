@@ -255,12 +255,12 @@
   .custom-popup {
     position: fixed;
     bottom: 80px; right: 20px;
-    width: 260px;
+    width: 270px;
     background: var(--bg-card);
     border: 1px solid var(--border-card);
     border-radius: 16px;
     padding: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     display: none;
     flex-direction: column;
     gap: 12px;
@@ -289,6 +289,21 @@
   }
 
   /* Controls bên trong Popup Nhạc */
+  .play-toggle-btn {
+    background: var(--neon-accent);
+    color: var(--bg-main);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 12px;
+    cursor: pointer;
+    text-align: center;
+    transition: opacity 0.2s;
+  }
+
+  .play-toggle-btn:hover { opacity: 0.9; }
+
   .track-list { display: flex; flex-direction: column; gap: 6px; }
 
   .track-item {
@@ -405,14 +420,20 @@
       <span>🎵 Tùy Chọn Trình Phát</span>
       <button class="close-popup-btn" id="closeMusicPopup">✕</button>
     </div>
+
+    <!-- Nút Bật / Tắt Trực Tiếp -->
+    <button class="play-toggle-btn" id="playToggleBtn">▶️ Phát Nhạc Ngay</button>
+
     <div class="track-list">
-      <button class="track-item active" data-src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3">🎼 Bài 1: Lofi Study Chill</button>
-      <button class="track-item" data-src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=chill-lofi-song-8444.mp3">🎹 Bài 2: Night Vibe Lofi</button>
-      <button class="track-item" data-src="https://cdn.pixabay.com/download/audio/2022/10/25/audio_226f30a9e2.mp3?filename=lofi-mellow-126296.mp3">🎧 Bài 3: Midnight Phonk</button>
+      <!-- Dùng Server CDN Nhạc MP3 Cực Kỳ Ổn Định -->
+      <button class="track-item active" data-src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Sains_Loop/Kai_Engel_-_04_-_Homerooms.mp3">🎼 Bài 1: Lofi Chill Out</button>
+      <button class="track-item" data-src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3">🎹 Bài 2: Cyber Synthwave</button>
+      <button class="track-item" data-src="https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/6YJ2B1E2Q40z0sU510p92gR5C4V6wS.mp3">🎧 Bài 3: Midnight Beat</button>
     </div>
+
     <div class="volume-box">
-      <span>🔊 Max Vol:</span>
-      <input type="range" id="volumeSlider" min="0" max="3" step="0.1" value="1.5">
+      <span>🔊 Âm lượng:</span>
+      <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="1">
     </div>
   </div>
 
@@ -441,8 +462,9 @@
     <button class="widget-btn" id="openMusicBtn" title="Tùy chọn trình phát nhạc">🎵</button>
   </div>
 
+  <!-- THẺ AUDIO CHUẨN HTML5 -->
   <audio id="bgMusic" loop preload="auto">
-    <source id="musicSource" src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
+    <source id="musicSource" src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Sains_Loop/Kai_Engel_-_04_-_Homerooms.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -516,28 +538,20 @@
       }
       animateParticles();
 
-      /* --- 3. Âm Lượng Nhạc Siêu To (Khuếch Đại Web Audio API) --- */
-      const bgMusic = document.getElementById('bgMusic');
-      let audioCtx, gainNode, sourceNode;
-
-      function initAudioBoost() {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-          gainNode = audioCtx.createGain();
-          sourceNode = audioCtx.createMediaElementSource(bgMusic);
-          sourceNode.connect(gainNode);
-          gainNode.connect(audioCtx.destination);
-          gainNode.gain.value = 1.5; // Đẩy âm lượng mặc định lên gấp rưỡi
-        }
-      }
-
-      /* --- 4. Quản Lý Pop-up Panel & Nút Bấm --- */
+      /* --- 3. Quản Lý Pop-up Panel & Nhạc --- */
       const openMusicBtn = document.getElementById('openMusicBtn');
       const openThemeBtn = document.getElementById('openThemeBtn');
       const musicPopup = document.getElementById('musicPopup');
       const themePopup = document.getElementById('themePopup');
       const closeMusicPopup = document.getElementById('closeMusicPopup');
       const closeThemePopup = document.getElementById('closeThemePopup');
+
+      const bgMusic = document.getElementById('bgMusic');
+      const musicSource = document.getElementById('musicSource');
+      const playToggleBtn = document.getElementById('playToggleBtn');
+      const volumeSlider = document.getElementById('volumeSlider');
+
+      bgMusic.volume = 1.0; // Đặt max 100% âm lượng mặc định
 
       openMusicBtn.addEventListener('click', () => {
         themePopup.classList.remove('active');
@@ -552,34 +566,45 @@
       closeMusicPopup.addEventListener('click', () => musicPopup.classList.remove('active'));
       closeThemePopup.addEventListener('click', () => themePopup.classList.remove('active'));
 
-      // Đổi Bài Hát & Bật Âm Thanh
+      // Bật/Tắt Nhạc
+      playToggleBtn.addEventListener('click', () => {
+        if (bgMusic.paused) {
+          bgMusic.play().then(() => {
+            playToggleBtn.textContent = '⏸️ Tạm Dừng Nhạc';
+            openMusicBtn.textContent = '🎶';
+          }).catch(err => {
+            console.log("Lỗi phát nhạc:", err);
+          });
+        } else {
+          bgMusic.pause();
+          playToggleBtn.textContent = '▶️ Phát Nhạc Ngay';
+          openMusicBtn.textContent = '🎵';
+        }
+      });
+
+      // Đổi Bài Hát
       const trackItems = document.querySelectorAll('.track-item');
       trackItems.forEach(item => {
         item.addEventListener('click', () => {
-          initAudioBoost();
-          if (audioCtx.state === 'suspended') audioCtx.resume();
-
           trackItems.forEach(t => t.classList.remove('active'));
           item.classList.add('active');
 
           const newSrc = item.getAttribute('data-src');
-          document.getElementById('musicSource').src = newSrc;
+          musicSource.src = newSrc;
           bgMusic.load();
-          bgMusic.play();
-          openMusicBtn.textContent = '🎶';
+          bgMusic.play().then(() => {
+            playToggleBtn.textContent = '⏸️ Tạm Dừng Nhạc';
+            openMusicBtn.textContent = '🎶';
+          });
         });
       });
 
-      // Thanh Trượt Tăng Giảm Âm Lượng Max Boost
-      const volumeSlider = document.getElementById('volumeSlider');
+      // Chỉnh Âm Lượng
       volumeSlider.addEventListener('input', (e) => {
-        initAudioBoost();
-        if (gainNode) {
-          gainNode.gain.value = e.target.value;
-        }
+        bgMusic.volume = e.target.value;
       });
 
-      // Đổi Theme
+      // Đổi Theme Giao Diện
       const themeOptionBtns = document.querySelectorAll('.theme-option-btn');
       themeOptionBtns.forEach(btn => {
         btn.addEventListener('click', () => {
