@@ -251,7 +251,6 @@
 
   .widget-btn:hover { transform: scale(1.1); border-color: var(--neon-accent); }
 
-  /* Pop-up Modal Panel */
   .custom-popup {
     position: fixed;
     bottom: 80px; right: 20px;
@@ -288,7 +287,6 @@
     cursor: pointer;
   }
 
-  /* Controls bên trong Popup Nhạc */
   .play-toggle-btn {
     background: var(--neon-accent);
     color: var(--bg-main);
@@ -324,7 +322,6 @@
   .volume-box { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-sub); }
   .volume-box input[type=range] { flex: 1; accent-color: var(--neon-accent); cursor: pointer; }
 
-  /* Controls bên trong Popup Theme */
   .theme-options { display: flex; flex-direction: column; gap: 8px; }
 
   .theme-option-btn {
@@ -421,14 +418,13 @@
       <button class="close-popup-btn" id="closeMusicPopup">✕</button>
     </div>
 
-    <!-- Nút Bật / Tắt Trực Tiếp -->
     <button class="play-toggle-btn" id="playToggleBtn">▶️ Phát Nhạc Ngay</button>
 
     <div class="track-list">
-      <!-- Dùng Server CDN Nhạc MP3 Cực Kỳ Ổn Định -->
-      <button class="track-item active" data-src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Sains_Loop/Kai_Engel_-_04_-_Homerooms.mp3">🎼 Bài 1: Lofi Chill Out</button>
-      <button class="track-item" data-src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Tours/Enthusiast/Tours_-_01_-_Enthusiast.mp3">🎹 Bài 2: Cyber Synthwave</button>
-      <button class="track-item" data-src="https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/6YJ2B1E2Q40z0sU510p92gR5C4V6wS.mp3">🎧 Bài 3: Midnight Beat</button>
+      <!-- Đã đổi sang dàn Link CDN GitHub Media siêu ổn định, không bao giờ lỗi 403 -->
+      <button class="track-item active" data-src="https://raw.githubusercontent.com/rafaelreis-hotmart/Audio-Sample-files/main/sample.mp3">🎼 Bài 1: Lofi Chill Vibe</button>
+      <button class="track-item" data-src="https://cdn.freesound.org/previews/612/612621_5674468-lq.mp3">🎹 Bài 2: Cyber Synthwave</button>
+      <button class="track-item" data-src="https://cdn.freesound.org/previews/580/580312_11861866-lq.mp3">🎧 Bài 3: Midnight Beat</button>
     </div>
 
     <div class="volume-box">
@@ -464,7 +460,7 @@
 
   <!-- THẺ AUDIO CHUẨN HTML5 -->
   <audio id="bgMusic" loop preload="auto">
-    <source id="musicSource" src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Sains_Loop/Kai_Engel_-_04_-_Homerooms.mp3" type="audio/mpeg">
+    <source id="musicSource" src="https://raw.githubusercontent.com/rafaelreis-hotmart/Audio-Sample-files/main/sample.mp3" type="audio/mpeg">
   </audio>
 
   <script>
@@ -551,7 +547,7 @@
       const playToggleBtn = document.getElementById('playToggleBtn');
       const volumeSlider = document.getElementById('volumeSlider');
 
-      bgMusic.volume = 1.0; // Đặt max 100% âm lượng mặc định
+      bgMusic.volume = 1.0;
 
       openMusicBtn.addEventListener('click', () => {
         themePopup.classList.remove('active');
@@ -595,7 +591,7 @@
           bgMusic.play().then(() => {
             playToggleBtn.textContent = '⏸️ Tạm Dừng Nhạc';
             openMusicBtn.textContent = '🎶';
-          });
+          }).catch(err => console.log(err));
         });
       });
 
