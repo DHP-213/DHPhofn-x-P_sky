@@ -372,8 +372,69 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
   }
-</style>
+
+  /* Biến Theme Purple Cyberpunk */
+  body.theme-purple {
+    --gradient-neon: linear-gradient(135deg, #a855f7, #ec4899);
+    --neon-blue: #c084fc;
+    --neon-pink: #f472b6;
+  }
+
+  /* Bộ Điều Khiển Floating Widgets (Góc Màn Hình) */
+  .floating-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+  }
+
+  .widget-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(13, 14, 21, 0.85);
+    border: 1px solid rgba(0, 240, 255, 0.4);
+    color: var(--neon-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    font-size: 18px;
+  }
+
+  .widget-btn:hover {
+    transform: scale(1.1);
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+    box-shadow: 0 0 15px rgba(255, 0, 170, 0.6);
+  }
+
+  /* Hiệu ứng Đĩa Quay khi Phát Nhạc */
+  .music-btn.playing {
+    animation: spinDisc 3s linear infinite;
+    border-color: var(--neon-pink);
+    color: var(--neon-pink);
+  }
+
+  @keyframes spinDisc {
+    100% { transform: rotate(360deg); }
+  }
+</style>/
 </head>
 <body>
 
