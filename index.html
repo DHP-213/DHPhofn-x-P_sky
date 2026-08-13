@@ -100,13 +100,13 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 480px;
+    max-width: 520px;
     padding: 36px 14px 28px;
     animation: fadeInUp 0.6s ease-out both;
   }
 
   @media (min-width: 768px) {
-    .container { max-width: 560px; padding: 50px 20px 40px; }
+    .container { max-width: 600px; padding: 50px 20px 40px; }
   }
 
   /* ==========================================================
@@ -166,12 +166,24 @@
   }
 
   /* ==========================================================
-     4. TABS & LINK CARDS
+     4. TABS & LINK CARDS (ĐÃ SỬA LỖI BỊ TRÀN CHỮ)
   ========================================================== */
-  .tabs-wrapper { margin-bottom: 20px; overflow-x: auto; padding: 4px 2px 8px; scrollbar-width: none; }
-  .tabs-wrapper::-webkit-scrollbar { display: none; }
+  .tabs-wrapper { 
+    margin-bottom: 20px; 
+    width: 100%;
+    overflow-x: auto; 
+    padding: 4px 2px 10px; 
+    scrollbar-width: thin;
+    scrollbar-color: var(--neon-accent) transparent;
+  }
 
-  .tabs-container { display: flex; gap: 8px; width: max-content; margin: 0 auto; }
+  .tabs-container { 
+    display: flex; 
+    gap: 8px; 
+    width: max-content; 
+    margin: 0 auto; 
+    padding: 0 4px;
+  }
 
   .tab-btn {
     background: var(--bg-card);
@@ -181,6 +193,7 @@
     padding: 8px 12px; border-radius: 20px;
     cursor: pointer; transition: all 0.25s ease;
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .tab-btn.active, .tab-btn:hover {
@@ -339,10 +352,10 @@
       </div>
     </div>
 
-    <!-- DANH SÁCH 16 TỔNG LINK CỦA BRO -->
+    <!-- DANH SÁCH SẢN PHẨM -->
     <main class="links-list" id="linksList">
 
-      <!-- 🤖 DANH MỤC: MÔ HÌNH GUNDAM (5 LINK) -->
+      <!-- 🤖 MÔ HÌNH GUNDAM -->
       <a href="https://s.shopee.vn/2gAIErZrLW" data-category="mo-hinh" class="link-card" target="_blank">
         <div class="link-icon">🤖</div>
         <div class="link-info">
@@ -389,7 +402,7 @@
       </a>
 
 
-      <!-- 💡 DANH MỤC: ĐÈN LED RGB DÁN BÀN 5M (5 LINK) -->
+      <!-- 💡 ĐÈN LED RGB DÁN BÀN 5M -->
       <a href="https://s.shopee.vn/9pdSmJyh2B" data-category="den-led" class="link-card" target="_blank">
         <div class="link-icon">💡</div>
         <div class="link-info">
@@ -436,7 +449,7 @@
       </a>
 
 
-      <!-- ⌨️ DANH MỤC: BÀN PHÍM CƠ MINI 61 KEYS (3 LINK) -->
+      <!-- ⌨️ BÀN PHÍM CƠ MINI 61 KEYS -->
       <a href="https://s.shopee.vn/BSxGmKctp" data-category="ban-phim" class="link-card" target="_blank">
         <div class="link-icon">⌨️</div>
         <div class="link-info">
@@ -465,7 +478,7 @@
       </a>
 
 
-      <!-- 📱 DANH MỤC: KẸP LIVESTREAM RING LIGHT (3 LINK) -->
+      <!-- 📱 KẸP LIVESTREAM RING LIGHT -->
       <a href="https://s.shopee.vn/6L3acE1br3" data-category="kep-stream" class="link-card" target="_blank">
         <div class="link-icon">📱</div>
         <div class="link-info">
