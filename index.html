@@ -1,350 +1,103 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0A0A0F">
-<meta name="description" content="DHPhofn x P_sky Editz - Bio Link tổng hợp Gear & Decor chất lượng Shopee.">
-
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0A0A0F"><meta name="description" content="DHPhofn x P_sky Editz - Bio Link tổng hợp Gear, PC & Decor chất lượng Shopee.">
 <title>DHPhofn x P_sky Editz | Bio Link</title>
-
-<!-- Favicon Icon 🗿 -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗿</text></svg>">
-
-<!-- Google Font: Orbitron -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&display=swap" rel="stylesheet">
-
+<!-- Favicon Icon 🗿 --><link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🗿</text></svg>">
+<!-- Google Font: Orbitron --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
-  /* ==========================================================
-     1. RESET & CSS VARIABLES (THEMES)
-  ========================================================== */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  /* 🌌 Theme 1: Cyberpunk Dark */
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   :root {
-    --bg-main: #0A0A0F;
-    --bg-grid: rgba(0, 240, 255, 0.05);
-    --bg-card: #12121A;
-    --border-card: rgba(0, 240, 255, 0.25);
-    --text-main: #F0F0FF;
-    --text-sub: #8888AA;
-    --neon-accent: #00F0FF;
-    --particle-color: rgba(0, 240, 255, 0.7);
+    --bg-main: #0A0A0F; --bg-grid: rgba(0, 240, 255, 0.05); --bg-card: #12121A;
+    --border-card: rgba(0, 240, 255, 0.25); --text-main: #F0F0FF; --text-sub: #8888AA;
+    --neon-accent: #00F0FF; --particle-color: rgba(0, 240, 255, 0.7);
     --gradient-avatar: linear-gradient(135deg, #00F0FF, #FF00AA);
   }
-
-  /* 🔮 Theme 2: Purple Cyberpunk */
   body.theme-purple {
-    --bg-main: #0F0A18;
-    --bg-grid: rgba(192, 132, 252, 0.06);
-    --bg-card: #1A1228;
-    --border-card: rgba(192, 132, 252, 0.3);
-    --text-main: #FAF5FF;
-    --text-sub: #A892C6;
-    --neon-accent: #C084FC;
-    --particle-color: rgba(192, 132, 252, 0.7);
+    --bg-main: #0F0A18; --bg-grid: rgba(192, 132, 252, 0.06); --bg-card: #1A1228;
+    --border-card: rgba(192, 132, 252, 0.3); --text-main: #FAF5FF; --text-sub: #A892C6;
+    --neon-accent: #C084FC; --particle-color: rgba(192, 132, 252, 0.7);
     --gradient-avatar: linear-gradient(135deg, #a855f7, #ec4899);
   }
-
-  /* ⚪ Theme 3: Light Cyber */
   body.theme-light {
-    --bg-main: #FFFFFF;
-    --bg-grid: rgba(0, 0, 0, 0.12);
-    --bg-card: #F4F4F8;
-    --border-card: rgba(0, 0, 0, 0.2);
-    --text-main: #111118;
-    --text-sub: #555566;
-    --neon-accent: #000000;
-    --particle-color: rgba(0, 0, 0, 0.65);
+    --bg-main: #FFFFFF; --bg-grid: rgba(0, 0, 0, 0.12); --bg-card: #F4F4F8;
+    --border-card: rgba(0, 0, 0, 0.2); --text-main: #111118; --text-sub: #555566;
+    --neon-accent: #000000; --particle-color: rgba(0, 0, 0, 0.65);
     --gradient-avatar: linear-gradient(135deg, #111111, #666666);
   }
-
   html, body { min-height: 100%; }
-
   body {
     background-color: var(--bg-main);
-    background-image:
-      linear-gradient(var(--bg-grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
-    background-size: 28px 28px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: var(--text-main);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    overflow-x: hidden;
-    position: relative;
-    padding-bottom: 70px;
-    transition: background 0.4s ease, color 0.4s ease;
+    background-image: linear-gradient(var(--bg-grid) 1px, transparent 1px), linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+    background-size: 28px 28px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-main); min-height: 100vh; display: flex; justify-content: center;
+    overflow-x: hidden; position: relative; padding-bottom: 70px; transition: background 0.4s ease, color 0.4s ease;
   }
-
-  /* ==========================================================
-     2. CANVAS HẠT BỤI
-  ========================================================== */
-  #particles-canvas {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .container {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 520px;
-    padding: 36px 14px 28px;
-    animation: fadeInUp 0.6s ease-out both;
-  }
-
-  @media (min-width: 768px) {
-    .container { max-width: 600px; padding: 50px 20px 40px; }
-  }
-
-  /* ==========================================================
-     3. HEADER
-  ========================================================== */
+  #particles-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 1; }
+  .container { position: relative; z-index: 2; width: 100%; max-width: 520px; padding: 36px 14px 28px; animation: fadeInUp 0.6s ease-out both; }
+  @media (min-width: 768px) { .container { max-width: 600px; padding: 50px 20px 40px; } }
+  
+  /* HEADER */
   .profile-header { text-align: center; margin-bottom: 24px; }
-
-  .avatar-wrap {
-    width: 90px; height: 90px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    padding: 3px;
-    background: var(--gradient-avatar);
-    animation: avatarPulse 2.5s ease-in-out infinite;
-  }
-
-  .avatar-img {
-    width: 100%; height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    background: #0d0e15;
-  }
-
-  @keyframes avatarPulse {
-    0%, 100% { transform: scale(1); box-shadow: 0 0 12px 2px var(--neon-accent); }
-    50% { transform: scale(1.03); box-shadow: 0 0 20px 4px var(--neon-accent); }
-  }
-
-  .channel-name {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 21px; font-weight: 700;
-    letter-spacing: 1px;
-    color: var(--text-main);
-    margin-bottom: 6px;
-  }
-
+  .avatar-wrap { width: 90px; height: 90px; margin: 0 auto 16px; border-radius: 50%; padding: 3px; background: var(--gradient-avatar); animation: avatarPulse 2.5s ease-in-out infinite; }
+  .avatar-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block; background: #0d0e15; }
+  @keyframes avatarPulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 12px 2px var(--neon-accent); } 50% { transform: scale(1.03); box-shadow: 0 0 20px 4px var(--neon-accent); } }
+  .channel-name { font-family: 'Orbitron', sans-serif; font-size: 21px; font-weight: 700; letter-spacing: 1px; color: var(--text-main); margin-bottom: 6px; }
   .bio { font-size: 13px; color: var(--text-sub); line-height: 1.4; padding: 0 10px; margin-bottom: 14px; }
+  .verified-badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--neon-accent); color: var(--text-main); font-size: 11px; font-weight: 600; border-radius: 20px; padding: 4px 12px 4px 5px; background: rgba(0, 0, 0, 0.05); }
+  .verified-badge .check-icon { width: 14px; height: 14px; border-radius: 50%; background: var(--neon-accent); color: var(--bg-main); display: inline-flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 900; }
 
-  .verified-badge {
-    display: inline-flex; align-items: center; gap: 6px;
-    border: 1px solid var(--neon-accent);
-    color: var(--text-main);
-    font-size: 11px; font-weight: 600;
-    border-radius: 20px;
-    padding: 4px 12px 4px 5px;
-    background: rgba(0, 0, 0, 0.05);
-  }
+  /* TABS & SUB-FILTER MENU */
+  .tabs-wrapper { margin-bottom: 12px; width: 100%; overflow-x: auto; padding: 4px 2px 6px; scrollbar-width: thin; scrollbar-color: var(--neon-accent) transparent; }
+  .tabs-container { display: flex; gap: 8px; width: max-content; margin: 0 auto; padding: 0 4px; }
+  .tab-btn { background: var(--bg-card); border: 1px solid var(--border-card); color: var(--text-sub); font-size: 12px; font-weight: 600; padding: 8px 12px; border-radius: 20px; cursor: pointer; transition: all 0.25s ease; white-space: nowrap; flex-shrink: 0; }
+  .tab-btn.active, .tab-btn:hover { border-color: var(--neon-accent); color: var(--neon-accent); background: rgba(0, 0, 0, 0.05); }
 
-  .verified-badge .check-icon {
-    width: 14px; height: 14px;
-    border-radius: 50%;
-    background: var(--neon-accent);
-    color: var(--bg-main);
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 9px; font-weight: 900;
-  }
+  /* Sub-filter Dropdown Button Container */
+  .sub-filter-container { display: none; margin-bottom: 18px; text-align: center; animation: fadeInUp 0.3s ease; }
+  .sub-filter-container.active { display: block; }
+  .sub-select-btn { width: 100%; padding: 10px 16px; border-radius: 12px; background: var(--bg-card); border: 1px solid var(--neon-accent); color: var(--text-main); font-size: 13px; font-weight: 700; outline: none; cursor: pointer; font-family: inherit; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+  .sub-select-btn option { background: var(--bg-card); color: var(--text-main); font-weight: 600; }
 
-  /* ==========================================================
-     4. TABS & LINK CARDS (ĐÃ SỬA LỖI BỊ TRÀN CHỮ)
-  ========================================================== */
-  .tabs-wrapper { 
-    margin-bottom: 20px; 
-    width: 100%;
-    overflow-x: auto; 
-    padding: 4px 2px 10px; 
-    scrollbar-width: thin;
-    scrollbar-color: var(--neon-accent) transparent;
-  }
-
-  .tabs-container { 
-    display: flex; 
-    gap: 8px; 
-    width: max-content; 
-    margin: 0 auto; 
-    padding: 0 4px;
-  }
-
-  .tab-btn {
-    background: var(--bg-card);
-    border: 1px solid var(--border-card);
-    color: var(--text-sub);
-    font-size: 12px; font-weight: 600;
-    padding: 8px 12px; border-radius: 20px;
-    cursor: pointer; transition: all 0.25s ease;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  .tab-btn.active, .tab-btn:hover {
-    border-color: var(--neon-accent);
-    color: var(--neon-accent);
-    background: rgba(0, 0, 0, 0.05);
-  }
-
+  /* LINK CARDS */
   .links-list { display: flex; flex-direction: column; gap: 12px; }
-
-  .link-card {
-    display: flex; align-items: center; gap: 12px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-card);
-    border-radius: 14px;
-    padding: 14px 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    text-decoration: none; color: inherit;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-  }
-
+  .link-card { display: flex; align-items: center; gap: 12px; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 14px; padding: 14px 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-decoration: none; color: inherit; transition: transform 0.2s ease, border-color 0.2s ease; }
   .link-card:hover { transform: translateY(-2px); border-color: var(--neon-accent); }
-
-  .link-icon {
-    width: 38px; height: 38px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px; background: rgba(0, 0, 0, 0.04);
-    border: 1px solid var(--border-card);
-  }
-
+  .link-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; background: rgba(0, 0, 0, 0.04); border: 1px solid var(--border-card); }
   .link-info { flex: 1; min-width: 0; }
   .link-title { font-size: 14px; font-weight: 600; color: var(--text-main); margin-bottom: 2px; }
   .link-desc { font-size: 11px; color: var(--text-sub); }
-
-  .link-cta {
-    border: 1px solid var(--neon-accent);
-    color: var(--neon-accent);
-    font-size: 11px; font-weight: 700;
-    border-radius: 18px; padding: 5px 12px;
-    white-space: nowrap;
-  }
-
+  .link-cta { border: 1px solid var(--neon-accent); color: var(--neon-accent); font-size: 11px; font-weight: 700; border-radius: 18px; padding: 5px 12px; white-space: nowrap; }
   .link-card:hover .link-cta { background: var(--neon-accent); color: var(--bg-main); }
 
-  /* ==========================================================
-     5. FLOATING CONTROL (ĐỔI THEME)
-  ========================================================== */
-  .floating-controls {
-    position: fixed;
-    bottom: 20px; right: 20px;
-    z-index: 999;
-  }
-
-  .widget-btn {
-    width: 48px; height: 48px;
-    border-radius: 50%;
-    background: var(--bg-card);
-    border: 1px solid var(--border-card);
-    color: var(--text-main);
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.25);
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    font-size: 20px;
-  }
-
+  /* FLOATING CONTROLS */
+  .floating-controls { position: fixed; bottom: 20px; right: 20px; z-index: 999; }
+  .widget-btn { width: 48px; height: 48px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border-card); color: var(--text-main); display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.25); transition: transform 0.2s ease, border-color 0.2s ease; font-size: 20px; }
   .widget-btn:hover { transform: scale(1.1); border-color: var(--neon-accent); }
-
-  .custom-popup {
-    position: fixed;
-    bottom: 80px; right: 20px;
-    width: 250px;
-    background: var(--bg-card);
-    border: 1px solid var(--border-card);
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    display: none;
-    flex-direction: column;
-    gap: 12px;
-    z-index: 1000;
-    animation: popUpAnim 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-  }
-
+  .custom-popup { position: fixed; bottom: 80px; right: 20px; width: 250px; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 16px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); display: none; flex-direction: column; gap: 12px; z-index: 1000; animation: popUpAnim 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
   .custom-popup.active { display: flex; }
-
-  @keyframes popUpAnim {
-    from { opacity: 0; transform: translateY(15px) scale(0.95); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
-  .popup-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 13px; font-weight: 700;
-    color: var(--neon-accent);
-    display: flex; justify-content: space-between; align-items: center;
-  }
-
-  .close-popup-btn {
-    background: none; border: none;
-    color: var(--text-sub); font-size: 16px;
-    cursor: pointer;
-  }
-
+  @keyframes popUpAnim { from { opacity: 0; transform: translateY(15px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  .popup-title { font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 700; color: var(--neon-accent); display: flex; justify-content: space-between; align-items: center; }
+  .close-popup-btn { background: none; border: none; color: var(--text-sub); font-size: 16px; cursor: pointer; }
   .theme-options { display: flex; flex-direction: column; gap: 8px; }
-
-  .theme-option-btn {
-    display: flex; align-items: center; gap: 10px;
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-card);
-    color: var(--text-main);
-    padding: 8px 12px; border-radius: 8px;
-    font-size: 12px; cursor: pointer; text-align: left;
-    transition: all 0.2s ease;
-  }
-
+  .theme-option-btn { display: flex; align-items: center; gap: 10px; background: rgba(0, 0, 0, 0.05); border: 1px solid var(--border-card); color: var(--text-main); padding: 8px 12px; border-radius: 8px; font-size: 12px; cursor: pointer; text-align: left; transition: all 0.2s ease; }
   .theme-option-btn:hover { border-color: var(--neon-accent); color: var(--neon-accent); }
-
   .color-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid #fff; }
-
   footer { text-align: center; font-size: 11px; color: var(--text-sub); margin-top: 28px; }
-
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
-</head>
-<body>
-
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+</style></head><body>
   <canvas id="particles-canvas"></canvas>
-
   <div class="container">
-
     <!-- HEADER -->
     <header class="profile-header">
-      <div class="avatar-wrap">
-        <img class="avatar-img" src="logo.png" alt="Logo">
-      </div>
+      <div class="avatar-wrap"><img class="avatar-img" src="logo.png" alt="Logo"></div>
       <h1 class="channel-name">DHPhofn x P_sky Editz</h1>
-      <p class="bio">Biến footage thường thành thước phim Anime 🔥</p>
-      <span class="verified-badge">
-        <span class="check-icon">✓</span> Verified Editor
-      </span>
+      <p class="bio">Biến footage thường thành thước phim Anime 🔥 | Gear & Linh Kiện PC</p>
+      <span class="verified-badge"><span class="check-icon">✓</span> Verified Editor</span>
     </header>
 
-    <!-- TABS DANH MỤC -->
+    <!-- TABS DANH MỤC CHÍNH -->
     <div class="tabs-wrapper">
       <div class="tabs-container">
         <button class="tab-btn active" data-tab="all">Tất Cả ⚡</button>
+        <button class="tab-btn" data-tab="linh-kien">Linh Kiện PC ⚙️</button>
         <button class="tab-btn" data-tab="mo-hinh">Mô Hình 🤖</button>
         <button class="tab-btn" data-tab="den-led">Đèn LED 💡</button>
         <button class="tab-btn" data-tab="ban-phim">Bàn Phím ⌨️</button>
@@ -352,166 +105,353 @@
       </div>
     </div>
 
+    <!-- NÚT CHỌN LỌC LINH KIỆN CHI TIẾT (HIỆN KHI CHỌN TAB LINH KIỆN PC) -->
+    <div class="sub-filter-container" id="subFilterWrap">
+      <select class="sub-select-btn" id="pcSubSelect">
+        <option value="all-pc">🖥️ Tất Cả Linh Kiện PC (Hiển thị đầy đủ)</option>
+        <option value="vga">🎮 Card Màn Hình (VGA RTX 3060 / 4060)</option>
+        <option value="cpu">⚡ Bộ Vi Xử Lý (CPU Intel / Ryzen)</option>
+        <option value="ram-ssd-tan">💾 Bộ Nhớ & Tản Nhiệt (RAM, SSD, Tản AIO)</option>
+        <option value="nguon-case">🔌 Nguồn (PSU) & Vỏ Case Bể Cá</option>
+      </select>
+    </div>
+
     <!-- DANH SÁCH SẢN PHẨM -->
     <main class="links-list" id="linksList">
+
+      <!-- ================= LINH KIỆN PC ================= -->
+
+      <!-- VGA: CARD MÀN HÌNH -->
+      <a href="https://s.shopee.vn/3g2sWrJVxe" data-category="linh-kien" data-sub="vga" class="link-card" target="_blank">
+        <div class="link-icon">🎮</div>
+        <div class="link-info"><div class="link-title">Card RTX 3060 12GB - Mẫu 1</div><div class="link-desc">12GB VRAM preview clip cực mượt</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/3qMIjy359s" data-category="linh-kien" data-sub="vga" class="link-card" target="_blank">
+        <div class="link-icon">🎮</div>
+        <div class="link-info"><div class="link-title">Card RTX 3060 12GB - Mẫu 2</div><div class="link-desc">Cân tốt Render Video & Gaming 1080p</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/9pdVtUU3vC" data-category="linh-kien" data-sub="vga" class="link-card" target="_blank">
+        <div class="link-icon">🎮</div>
+        <div class="link-info"><div class="link-title">Card RTX 3060 12GB - Mẫu 3</div><div class="link-desc">Tản nhiệt mát mẻ, hiệu năng ổn định</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/4Az99WebDY" data-category="linh-kien" data-sub="vga" class="link-card" target="_blank">
+        <div class="link-icon">🎮</div>
+        <div class="link-info"><div class="link-title">Card RTX 3060 12GB - Mẫu 4</div><div class="link-desc">Phiên bản OC ép xung sẵn cực mạnh</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/4VbzYLl8li" data-category="linh-kien" data-sub="vga" class="link-card" target="_blank">
+        <div class="link-icon">🎮</div>
+        <div class="link-info"><div class="link-title">Card RTX 3060 8GB - Mẫu 1</div><div class="link-desc">Tối ưu chi phí cho dàn PC Gaming</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/6fgU8Ss9Yn" data-category="linh-kien" data-sub="vga" class="link-card" target="_blank">
+        <div class="link-icon">🎮</div>
+        <div class="link-info"><div class="link-title">Card RTX 3060 8GB - Mẫu 2</div><div class="link-desc">Thiết kế nhỏ gọn thích hợp case mini</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/4Az99uHhmZ" data-category="linh-kien" data-sub="vga" class="link-card" target="_blank">
+        <div class="link-icon">🎮</div>
+        <div class="link-info"><div class="link-title">Card RTX 3060 8GB - Mẫu 3</div><div class="link-desc">Đồ họa sắc nét, hỗ trợ Ray Tracing</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/4Az99w2wSX" data-category="linh-kien" data-sub="vga" class="link-card" target="_blank">
+        <div class="link-icon">🎮</div>
+        <div class="link-info"><div class="link-title">Card RTX 3060 8GB - Mẫu 4</div><div class="link-desc">Bảo hành chính hãng Shopee Mall</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/3qMIlihSlq" data-category="linh-kien" data-sub="vga" class="link-card" target="_blank">
+        <div class="link-icon">🎮</div>
+        <div class="link-info"><div class="link-title">Card RTX 4060 Thế Hệ Mới</div><div class="link-desc">Kiến trúc Ada Lovelace, hỗ trợ DLSS 3</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <!-- CPU: BỘ VI XỬ LÝ -->
+      <a href="https://s.shopee.vn/20ueajRkrR" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i5-12400F - Mẫu 1</div><div class="link-desc">CPU quốc dân Edit Video & Gaming</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/8pkyjPg9cN" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i5-12400F - Mẫu 2</div><div class="link-desc">6 nhân 12 luồng xử lý mượt mà</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/3qMImFCXA2" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i5-12400F - Mẫu 3</div><div class="link-desc">Hàng chính hãng box mới 100%</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/1gHoCOdcNI" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i5-12400F - Mẫu 4</div><div class="link-desc">Giá siêu ưu đãi hỗ trợ ráp máy</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/50YGAe19G1" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i5-13400F - Mẫu 1</div><div class="link-desc">10 nhân 16 luồng đa nhiệm cực khỏe</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/9zww7rRYxU" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i5-13400F - Mẫu 2</div><div class="link-desc">Tăng tốc Render CapCut, Premiere</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/6L3dl9m8dB" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i5-13400F - Mẫu 3</div><div class="link-desc">Xung nhịp cao chiến mọi tựa game</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/5fnwy20pJ3" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i5-13400F - Mẫu 4</div><div class="link-desc">Bảo hành 36 tháng uy tín</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/7fZ1LtsLvx" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i7 - Mẫu 1</div><div class="link-desc">Dòng i7 cao cấp chuyên Render 4K</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/20uebXyDTx" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i7 - Mẫu 2</div><div class="link-desc">Hiệu năng vượt trội cho Creator</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/2gALOoynW0" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i7 - Mẫu 3</div><div class="link-desc">Xử lý hiệu ứng đồ họa heavy mượt</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/9ANp8om2Xh" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU Intel Core i7 - Mẫu 4</div><div class="link-desc">Sức mạnh xử lý dữ liệu đỉnh cao</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/4LIZO6ibVi" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU AMD Ryzen 5 5600X - Mẫu 1</div><div class="link-desc">King of Gaming socket AM4 giá rẻ</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/7VFb9xdqwN" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU AMD Ryzen 5 5600X - Mẫu 2</div><div class="link-desc">Xung nhịp Turbo cao chiến mượt Roblox</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/7psRYbBExU" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU AMD Ryzen 5 5600X - Mẫu 3</div><div class="link-desc">Tiết kiệm điện năng, tỏa nhiệt ít</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/5fnwyeRp8V" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU AMD Ryzen 5 5600X - Mẫu 4</div><div class="link-desc">Lựa chọn hàng đầu cho build PC đẹp</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/2VqvCvJa7B" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU AMD Ryzen 5 7500F - Mẫu 1</div><div class="link-desc">Chuẩn DDR5 socket AM5 đời mới</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/4VbzacBdHA" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU AMD Ryzen 5 7500F - Mẫu 2</div><div class="link-desc">Bứt phá hiệu năng trong tầm giá</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/4fvPmxf3aL" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU AMD Ryzen 5 7500F - Mẫu 3</div><div class="link-desc">Tương thích các dòng Main B650</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/30nBnvGHEe" data-category="linh-kien" data-sub="cpu" class="link-card" target="_blank">
+        <div class="link-icon">⚡</div>
+        <div class="link-info"><div class="link-title">CPU AMD Ryzen 5 7500F - Mẫu 4</div><div class="link-desc">Sức mạnh vượt trội thế hệ mới</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <!-- RAM, SSD, TẢN NHIỆT -->
+      <a href="https://s.shopee.vn/9ANp9OswkH" data-category="linh-kien" data-sub="ram-ssd-tan" class="link-card" target="_blank">
+        <div class="link-icon">💾</div>
+        <div class="link-info"><div class="link-title">RAM PC Gaming RGB - Mẫu 1</div><div class="link-desc">Bus cao 3200MHz/3600MHz LED đẹp</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/4VbzaroOZf" data-category="linh-kien" data-sub="ram-ssd-tan" class="link-card" target="_blank">
+        <div class="link-icon">💾</div>
+        <div class="link-info"><div class="link-title">RAM PC Gaming RGB - Mẫu 2</div><div class="link-desc">Kit 16GB/32GB chạy Dual Channel</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/7AcklsF0NZ" data-category="linh-kien" data-sub="ram-ssd-tan" class="link-card" target="_blank">
+        <div class="link-icon">💾</div>
+        <div class="link-info"><div class="link-title">RAM PC Gaming RGB - Mẫu 3</div><div class="link-desc">Tản nhiệt nhôm LED nháy đồng bộ</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/4qEpzhGSEP" data-category="linh-kien" data-sub="ram-ssd-tan" class="link-card" target="_blank">
+        <div class="link-icon">🚀</div>
+        <div class="link-info"><div class="link-title">SSD NVMe Tốc Độ Cao - Mẫu 1</div><div class="link-desc">Đọc ghi mượt footage Edit Video</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/4fvPnPpsmp" data-category="linh-kien" data-sub="ram-ssd-tan" class="link-card" target="_blank">
+        <div class="link-icon">🚀</div>
+        <div class="link-info"><div class="link-title">SSD NVMe Tốc Độ Cao - Mẫu 2</div><div class="link-desc">Khởi động Windows & App siêu nhanh</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/5VUWmyGpSk" data-category="linh-kien" data-sub="ram-ssd-tan" class="link-card" target="_blank">
+        <div class="link-icon">🚀</div>
+        <div class="link-info"><div class="link-title">SSD NVMe Tốc Độ Cao - Mẫu 3</div><div class="link-desc">Dung lượng lớn 512GB / 1TB chuẩn M2</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/1qbEQJ3sle" data-category="linh-kien" data-sub="ram-ssd-tan" class="link-card" target="_blank">
+        <div class="link-icon">❄️</div>
+        <div class="link-info"><div class="link-title">Tản Nhiệt PC LED RGB - Mẫu 1</div><div class="link-desc">Giữ CPU luôn mát mẻ khi render</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/1VyO1mfhJe" data-category="linh-kien" data-sub="ram-ssd-tan" class="link-card" target="_blank">
+        <div class="link-icon">❄️</div>
+        <div class="link-info"><div class="link-title">Tản Nhiệt PC LED RGB - Mẫu 2</div><div class="link-desc">Tản khí / Tản nước AIO Cyberpunk</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/9ANp9uOYhq" data-category="linh-kien" data-sub="ram-ssd-tan" class="link-card" target="_blank">
+        <div class="link-icon">❄️</div>
+        <div class="link-info"><div class="link-title">Tản Nhiệt PC LED RGB - Mẫu 3</div><div class="link-desc">Quạt êm ái, hỗ trợ Sync Mainboard</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+      <!-- NGUỒN & VỎ CASE -->
+      <a href="https://s.shopee.vn/2LXV1UTkc3" data-category="linh-kien" data-sub="nguon-case" class="link-card" target="_blank">
+        <div class="link-icon">🔌</div>
+        <div class="link-info"><div class="link-title">Nguồn PC Công Suất Thực - Mẫu 1</div><div class="link-desc">Chuẩn 80 Plus Bronze cân RTX 3060</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/AUtCkWfhjj" data-category="linh-kien" data-sub="nguon-case" class="link-card" target="_blank">
+        <div class="link-icon">🔌</div>
+        <div class="link-info"><div class="link-title">Nguồn PC Công Suất Thực - Mẫu 2</div><div class="link-desc">Dòng 650W - 750W ổn định dòng điện</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/W5qqAQAYL" data-category="linh-kien" data-sub="nguon-case" class="link-card" target="_blank">
+        <div class="link-icon">🔌</div>
+        <div class="link-info"><div class="link-title">Nguồn PC Công Suất Thực - Mẫu 3</div><div class="link-desc">Cáp dẹt đen dễ đi dây gọn gàng</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/3LQ2DOSS8g" data-category="linh-kien" data-sub="nguon-case" class="link-card" target="_blank">
+        <div class="link-icon">🔌</div>
+        <div class="link-info"><div class="link-title">Nguồn PC Công Suất Thực - Mẫu 4</div><div class="link-desc">Bảo hành dài hạn an tâm sử dụng</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/70JKaCH8mS" data-category="linh-kien" data-sub="nguon-case" class="link-card" target="_blank">
+        <div class="link-icon">🖥️</div>
+        <div class="link-info"><div class="link-title">Vỏ Case Gaming Bể Cá - Mẫu 1</div><div class="link-desc">Kính cường lực trong suốt cực đẹp</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/40fj0jIghl" data-category="linh-kien" data-sub="nguon-case" class="link-card" target="_blank">
+        <div class="link-icon">🖥️</div>
+        <div class="link-info"><div class="link-title">Vỏ Case Gaming Bể Cá - Mẫu 2</div><div class="link-desc">Hỗ trợ gắn nhiều Fan LED RGB</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/2LXV1gz40T" data-category="linh-kien" data-sub="nguon-case" class="link-card" target="_blank">
+        <div class="link-icon">🖥️</div>
+        <div class="link-info"><div class="link-title">Vỏ Case Gaming Bể Cá - Mẫu 3</div><div class="link-desc">Không gian rộng thoáng dễ lắp ráp</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+      <a href="https://s.shopee.vn/9zww9nlpoX" data-category="linh-kien" data-sub="nguon-case" class="link-card" target="_blank">
+        <div class="link-icon">🖥️</div>
+        <div class="link-info"><div class="link-title">Vỏ Case Gaming Bể Cá - Mẫu 4</div><div class="link-desc">Phong cách bể cá vô cực HOT TikTok</div></div>
+        <span class="link-cta">Mua Ngay</span>
+      </a>
+
+
+      <!-- ================= SẢN PHẨM CŨ (MÔ HÌNH, ĐÈN LED, GEAR) ================= -->
 
       <!-- 🤖 MÔ HÌNH GUNDAM -->
       <a href="https://s.shopee.vn/2gAIErZrLW" data-category="mo-hinh" class="link-card" target="_blank">
         <div class="link-icon">🤖</div>
-        <div class="link-info">
-          <div class="link-title">Mô Hình Gundam Mẫu 1</div>
-          <div class="link-desc">Khớp linh hoạt, chi tiết sắc nét</div>
-        </div>
+        <div class="link-info"><div class="link-title">Mô Hình Gundam Mẫu 1</div><div class="link-desc">Khớp linh hoạt, chi tiết sắc nét</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/7VFXznKzW0" data-category="mo-hinh" class="link-card" target="_blank">
         <div class="link-icon">🤖</div>
-        <div class="link-info">
-          <div class="link-title">Mô Hình Gundam Mẫu 2</div>
-          <div class="link-desc">Tỷ lệ chuẩn, nhựa ABS cao cấp</div>
-        </div>
+        <div class="link-info"><div class="link-title">Mô Hình Gundam Mẫu 2</div><div class="link-desc">Tỷ lệ chuẩn, nhựa ABS cao cấp</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/20ubRiIdqm" data-category="mo-hinh" class="link-card" target="_blank">
         <div class="link-icon">🤖</div>
-        <div class="link-info">
-          <div class="link-title">Mô Hình Gundam Mẫu 3</div>
-          <div class="link-desc">Thiết kế Cyberpunk cực ngầu</div>
-        </div>
+        <div class="link-info"><div class="link-title">Mô Hình Gundam Mẫu 3</div><div class="link-desc">Thiết kế Cyberpunk cực ngầu</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/4fvMceh17H" data-category="mo-hinh" class="link-card" target="_blank">
         <div class="link-icon">🤖</div>
-        <div class="link-info">
-          <div class="link-title">Mô Hình Gundam Mẫu 4</div>
-          <div class="link-desc">Phù hợp decor góc máy tính</div>
-        </div>
+        <div class="link-info"><div class="link-title">Mô Hình Gundam Mẫu 4</div><div class="link-desc">Phù hợp decor góc máy tính</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/5LB3PuiU2i" data-category="mo-hinh" class="link-card" target="_blank">
         <div class="link-icon">🤖</div>
-        <div class="link-info">
-          <div class="link-title">Mô Hình Gundam Mẫu 5</div>
-          <div class="link-desc">Phiên bản đặc biệt màu chuẩn Anime</div>
-        </div>
+        <div class="link-info"><div class="link-title">Mô Hình Gundam Mẫu 5</div><div class="link-desc">Phiên bản đặc biệt màu chuẩn Anime</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
 
       <!-- 💡 ĐÈN LED RGB DÁN BÀN 5M -->
       <a href="https://s.shopee.vn/9pdSmJyh2B" data-category="den-led" class="link-card" target="_blank">
         <div class="link-icon">💡</div>
-        <div class="link-info">
-          <div class="link-title">Đèn LED RGB Dán Bàn 5M - Loại 1</div>
-          <div class="link-desc">Đổi màu App điện thoại, sync nhạc mượt</div>
-        </div>
+        <div class="link-info"><div class="link-title">Đèn LED RGB Dán Bàn 5M - Loại 1</div><div class="link-desc">Đổi màu App điện thoại, sync nhạc mượt</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/4qEmpASC66" data-category="den-led" class="link-card" target="_blank">
         <div class="link-icon">💡</div>
-        <div class="link-info">
-          <div class="link-title">Đèn LED RGB Dán Bàn 5M - Loại 2</div>
-          <div class="link-desc">Nhiều hiệu ứng sóng màu sinh động</div>
-        </div>
+        <div class="link-info"><div class="link-title">Đèn LED RGB Dán Bàn 5M - Loại 2</div><div class="link-desc">Nhiều hiệu ứng sóng màu sinh động</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/20ubRzpRMj" data-category="den-led" class="link-card" target="_blank">
         <div class="link-icon">💡</div>
-        <div class="link-info">
-          <div class="link-title">Đèn LED RGB Dán Bàn 5M - Loại 3</div>
-          <div class="link-desc">Có remote điều khiển từ xa tiện lợi</div>
-        </div>
+        <div class="link-info"><div class="link-title">Đèn LED RGB Dán Bàn 5M - Loại 3</div><div class="link-desc">Có remote điều khiển từ xa tiện lợi</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/80Bob2yR87" data-category="den-led" class="link-card" target="_blank">
         <div class="link-icon">💡</div>
-        <div class="link-info">
-          <div class="link-title">Đèn LED RGB Dán Bàn 5M - Loại 4</div>
-          <div class="link-desc">Ánh sáng êm dịu, chuẩn decor phòng</div>
-        </div>
+        <div class="link-info"><div class="link-title">Đèn LED RGB Dán Bàn 5M - Loại 4</div><div class="link-desc">Ánh sáng êm dịu, chuẩn decor phòng</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/6VN0oK7jtH" data-category="den-led" class="link-card" target="_blank">
         <div class="link-icon">💡</div>
-        <div class="link-info">
-          <div class="link-title">Đèn LED RGB Dán Bàn 5M - Loại 5</div>
-          <div class="link-desc">Dễ lắp đặt, keo dán bám dính cực chắc</div>
-        </div>
+        <div class="link-info"><div class="link-title">Đèn LED RGB Dán Bàn 5M - Loại 5</div><div class="link-desc">Dễ lắp đặt, keo dán bám dính cực chắc</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
 
       <!-- ⌨️ BÀN PHÍM CƠ MINI 61 KEYS -->
       <a href="https://s.shopee.vn/BSxGmKctp" data-category="ban-phim" class="link-card" target="_blank">
         <div class="link-icon">⌨️</div>
-        <div class="link-info">
-          <div class="link-title">Bàn Phím Cơ Mini 61 Keys - Mẫu A</div>
-          <div class="link-desc">Thiết kế nhỏ gọn, gõ cực đã tay</div>
-        </div>
+        <div class="link-info"><div class="link-title">Bàn Phím Cơ Mini 61 Keys - Mẫu A</div><div class="link-desc">Thiết kế nhỏ gọn, gõ cực đã tay</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/904Ln2pyID" data-category="ban-phim" class="link-card" target="_blank">
         <div class="link-icon">⌨️</div>
-        <div class="link-info">
-          <div class="link-title">Bàn Phím Cơ Mini 61 Keys - Mẫu B</div>
-          <div class="link-desc">Led RGB nhiều chế độ nháy độc đáo</div>
-        </div>
+        <div class="link-info"><div class="link-title">Bàn Phím Cơ Mini 61 Keys - Mẫu B</div><div class="link-desc">Led RGB nhiều chế độ nháy độc đáo</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/LmNT9Hl0Y" data-category="ban-phim" class="link-card" target="_blank">
         <div class="link-icon">⌨️</div>
-        <div class="link-info">
-          <div class="link-title">Bàn Phím Cơ Mini 61 Keys - Mẫu C</div>
-          <div class="link-desc">Hỗ trợ Hotswap thay switch dễ dàng</div>
-        </div>
+        <div class="link-info"><div class="link-title">Bàn Phím Cơ Mini 61 Keys - Mẫu C</div><div class="link-desc">Hỗ trợ Hotswap thay switch dễ dàng</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
 
       <!-- 📱 KẸP LIVESTREAM RING LIGHT -->
       <a href="https://s.shopee.vn/6L3acE1br3" data-category="kep-stream" class="link-card" target="_blank">
         <div class="link-icon">📱</div>
-        <div class="link-info">
-          <div class="link-title">Kẹp Livestream Ring Light - Mẫu 1</div>
-          <div class="link-desc">Đèn tròn hỗ trợ ánh sáng chuẩn Studio</div>
-        </div>
+        <div class="link-info"><div class="link-title">Kẹp Livestream Ring Light - Mẫu 1</div><div class="link-desc">Đèn tròn hỗ trợ ánh sáng chuẩn Studio</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/9pdSmhiwt7" data-category="kep-stream" class="link-card" target="_blank">
         <div class="link-icon">📱</div>
-        <div class="link-info">
-          <div class="link-title">Kẹp Livestream Ring Light - Mẫu 2</div>
-          <div class="link-desc">Giá đỡ linh hoạt, xoay 360 độ góc đẹp</div>
-        </div>
+        <div class="link-info"><div class="link-title">Kẹp Livestream Ring Light - Mẫu 2</div><div class="link-desc">Giá đỡ linh hoạt, xoay 360 độ góc đẹp</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
       <a href="https://s.shopee.vn/W5nfaVURb" data-category="kep-stream" class="link-card" target="_blank">
         <div class="link-icon">📱</div>
-        <div class="link-info">
-          <div class="link-title">Kẹp Livestream Ring Light - Mẫu 3</div>
-          <div class="link-desc">Chân đế chắc chắn, điều chỉnh độ cao</div>
-        </div>
+        <div class="link-info"><div class="link-title">Kẹp Livestream Ring Light - Mẫu 3</div><div class="link-desc">Chân đế chắc chắn, điều chỉnh độ cao</div></div>
         <span class="link-cta">Mua Ngay</span>
       </a>
-
     </main>
 
-    <footer>
-      Handcrafted with ❤️ by DHPhofn x P_sky Editz
-    </footer>
-
+    <footer>Handcrafted with ❤️ by DHPhofn x P_sky Editz</footer>
   </div>
 
   <!-- POPUP CÀI ĐẶT THEME -->
@@ -521,15 +461,9 @@
       <button class="close-popup-btn" id="closeThemePopup">✕</button>
     </div>
     <div class="theme-options">
-      <button class="theme-option-btn" data-theme="dark">
-        <span class="color-dot" style="background: #00F0FF;"></span> 🌌 Cyberpunk Tối
-      </button>
-      <button class="theme-option-btn" data-theme="purple">
-        <span class="color-dot" style="background: #C084FC;"></span> 🔮 Tím Neon Anime
-      </button>
-      <button class="theme-option-btn" data-theme="light">
-        <span class="color-dot" style="background: #000000;"></span> ⚪ Trắng Sọc Đen (Hạt Đen)
-      </button>
+      <button class="theme-option-btn" data-theme="dark"><span class="color-dot" style="background: #00F0FF;"></span> 🌌 Cyberpunk Tối</button>
+      <button class="theme-option-btn" data-theme="purple"><span class="color-dot" style="background: #C084FC;"></span> 🔮 Tím Neon Anime</button>
+      <button class="theme-option-btn" data-theme="light"><span class="color-dot" style="background: #000000;"></span> ⚪ Trắng Sọc Đen</button>
     </div>
   </div>
 
@@ -540,37 +474,62 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      
-      /* --- 1. Lọc Danh Mục --- */
       const tabBtns = document.querySelectorAll('.tab-btn');
       const linkCards = document.querySelectorAll('.link-card');
+      const subFilterWrap = document.getElementById('subFilterWrap');
+      const pcSubSelect = document.getElementById('pcSubSelect');
 
+      // Lọc theo Tab chính
       tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           tabBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           const category = btn.getAttribute('data-tab');
 
-          linkCards.forEach(card => {
-            const cardCat = card.getAttribute('data-category');
-            if (category === 'all' || cardCat === category) {
+          if (category === 'linh-kien') {
+            subFilterWrap.classList.add('active');
+            filterPCCards(pcSubSelect.value);
+          } else {
+            subFilterWrap.classList.remove('active');
+            linkCards.forEach(card => {
+              const cardCat = card.getAttribute('data-category');
+              if (category === 'all' || cardCat === category) {
+                card.style.display = 'flex';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          }
+        });
+      });
+
+      // Lọc theo Menu con Linh Kiện PC
+      pcSubSelect.addEventListener('change', (e) => {
+        filterPCCards(e.target.value);
+      });
+
+      function filterPCCards(subVal) {
+        linkCards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          const cardSub = card.getAttribute('data-sub');
+
+          if (cardCat === 'linh-kien') {
+            if (subVal === 'all-pc' || cardSub === subVal) {
               card.style.display = 'flex';
             } else {
               card.style.display = 'none';
             }
-          });
+          } else {
+            card.style.display = 'none';
+          }
         });
-      });
+      }
 
-      /* --- 2. Canvas Hạt Bụi Động --- */
+      /* Canvas Hạt Bụi Động */
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
       let particles = [];
-
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
+      function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
       window.addEventListener('resize', resizeCanvas);
       resizeCanvas();
 
@@ -584,24 +543,16 @@
           this.speedY = -Math.random() * 0.8 - 0.3;
         }
         update() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-          if (this.y < 0 || this.x < 0 || this.x > canvas.width) {
-            this.reset();
-            this.y = canvas.height;
-          }
+          this.x += this.speedX; this.y += this.speedY;
+          if (this.y < 0 || this.x < 0 || this.x > canvas.width) { this.reset(); this.y = canvas.height; }
         }
         draw() {
           const pColor = getComputedStyle(document.body).getPropertyValue('--particle-color').trim();
           ctx.fillStyle = pColor || 'rgba(0, 240, 255, 0.7)';
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fill();
+          ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
         }
       }
-
       for (let i = 0; i < 65; i++) particles.push(new Particle());
-
       function animateParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach(p => { p.update(); p.draw(); });
@@ -609,15 +560,11 @@
       }
       animateParticles();
 
-      /* --- 3. Đổi Giao Diện Theme --- */
+      /* Đổi Theme */
       const openThemeBtn = document.getElementById('openThemeBtn');
       const themePopup = document.getElementById('themePopup');
       const closeThemePopup = document.getElementById('closeThemePopup');
-
-      openThemeBtn.addEventListener('click', () => {
-        themePopup.classList.toggle('active');
-      });
-
+      openThemeBtn.addEventListener('click', () => themePopup.classList.toggle('active'));
       closeThemePopup.addEventListener('click', () => themePopup.classList.remove('active'));
 
       const themeOptionBtns = document.querySelectorAll('.theme-option-btn');
@@ -630,9 +577,6 @@
           themePopup.classList.remove('active');
         });
       });
-
     });
   </script>
-
-</body>
-</html>
+</body></html>
